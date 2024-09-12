@@ -1,9 +1,55 @@
 # A definition of causal effect
 
-This is a book created from markdown and executable code.
+## Individal causal effects
 
-See @knuth84 for additional discussion of literate programming.
+**对于个体** $i$ 的因果效应符号表达: $$Y_i^a=1 ≠ Y_i^a=0$$
 
-```{r}
-1 + 1
-```
+另外：$Y^{a=1}$ 或 $Y^{a=0}$，表示随机变量。
+
+**正式的个体因果效应的定义：**
+
+![](images/clipboard-2531190803.png)
+
+**变量**： $Y^{a=1}$ 或 $Y^{a=0}$ 被称为**潜在结局或反事实结局**
+
+对一致性的理解(Consistency)：假设某人接受某种治疗后的结局和观察到的这个人接受治疗的结果一致，用符号表达：if $A_i = a$, then $Y_i^a = Y_i^A = Y_i$
+
+::: callout-note
+## 为什么无法识别个体因果效应
+
+Individual causal effects are defined as a contrast of the values of counterfactual outcomes, but only one of those outcomes is observed for each individualthe one corresponding to the treatment value actually experienced by the individual. All other counterfactual outcomes remain unobserved. Because of missing data, individual effects cannot be identified, i.e., they cannot be expressed as a function of the observed data (See Fine Point 2.1 for a possible exception.)
+:::
+
+::: callout-note
+## Fine Point 1.1
+
+no interaction between units或者
+stable-unit-treatment-value assumption (SUTVA)
+
+隐含的条件是，每个个体接受治疗后的效应，不会因为其他个体是否接受治疗而改变
+
+:::
+
+## Average causal effect
+
+**正式的人群平均因果效应的定义：**
+
+![](images/clipboard-3383804364.png)
+
+::: callout-note
+## 群体的平均因果效应不存在不代表个体的因果效应不存在
+
+每个个体间的因果效应虽然不同，但是每个个体的因果效应的均值可能刚好相互抵消
+，这个时候群体因果效应就是0了，如果每个个体都不存在因果效应，群体也没有因果效应，这种情况，称之为the sharp causal null hypothesis 得到满足
+
+:::
+
+
+::: callout-note
+## Fine Point 1.2
+
+Multiple versions of treatment
+假设干预都是一模一样的，可以称为
+treatment variation irrelevance
+
+:::
