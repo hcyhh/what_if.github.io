@@ -1,14 +1,14 @@
 {
-    "id": "C5B59E27",
-    "path": "~/Documents/MyKeyData/300hobby/370professional_class_note/what_if/index.qmd",
-    "project_path": "index.qmd",
+    "id": "9A01BC92",
+    "path": "~/Documents/MyKeyData/300hobby/370professional_class_note/what_if/Why model.qmd",
+    "project_path": "Why model.qmd",
     "type": "quarto_markdown",
-    "hash": "906230213",
+    "hash": "3138864819",
     "contents": "",
     "dirty": false,
-    "created": 1726140992863.0,
+    "created": 1726142138434.0,
     "source_on_save": false,
-    "relative_order": 2,
+    "relative_order": 4,
     "properties": {
         "rmdVisualMode": "false",
         "rmdVisualWrapConfigured": "true",
@@ -16,16 +16,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "115:0",
         "cursorPosition": "1,11",
-        "scrollLine": "0"
+        "scrollLine": "0",
+        "rmdVisualModeLocation": "2:0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1726143675,
+    "lastKnownWriteTime": 1726142157,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1726143675937,
+    "last_content_update": 1726142157633,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -1,4 +1,4 @@
-# Introduction
+# A definition of causal effect
 
 This is a book created from markdown and executable code.
 

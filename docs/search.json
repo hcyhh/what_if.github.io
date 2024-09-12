@@ -2,10 +2,11 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "what_if",
+    "title": "what if",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2",
+    "text": "Preface",
     "crumbs": [
+      "Home",
       "Preface"
     ]
   },
@@ -26,6 +27,8 @@
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
     "crumbs": [
+      "Home",
+      "I Causal inference without models",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
     ]
   },
@@ -37,6 +40,51 @@
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "A definition of causal effect.html",
+    "href": "A definition of causal effect.html",
+    "title": "1  A definition of causal effect",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>A definition of causal effect</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#r学习资源推荐",
+    "href": "index.html#r学习资源推荐",
+    "title": "R语言学习笔记：从数据清洗到高级统计学和生物信息学",
+    "section": "",
+    "text": "在线书籍：\n\nR Graphics Cookbook, 2nd edition：https://r-graphics.org\nR for Data Science (2e)：https://r4ds.hadley.nz\nQuarto Guide：https://quarto.org/docs/guide/\nHappy Git and GitHub for the useR：https://happygitwithr.com\nBookdown：https://bookdown.org\n\n\n\n论坛/网站：\n\n交互式R语言学习网站：https://www.codecademy.com/learn/learn-r\nR CODER：https://r-coder.com\nStack Overflow：https://stackoverflow.com\nR-Bloggers：https://www.r-bloggers.com\nPosit Cheatsheets：https://posit.co/resources/cheatsheets/\nKaggle：https://www.kaggle.com/code?language=R\nThe R Graph Gallery：https://r-graph-gallery.com\nPosit Community：https://community.rstudio.com",
+    "crumbs": [
+      "Home",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>R语言学习笔记：从数据清洗到高级统计学和生物信息学</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#另外ps我超爱大花",
+    "href": "index.html#另外ps我超爱大花",
+    "title": "what if",
+    "section": "另外PS：我超爱大花",
+    "text": "另外PS：我超爱大花\n这一份读书笔记，想系统性的认真学习因果推断，参考书籍《what if》:\nhttps://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/\n链接中包含可运行代码，便于练习，每周上完课程后将自己所学进行总结，\n进一步复习和完成代码练习，再将学习总结资料搬运到各个平台。",
+    "crumbs": [
+      "Home",
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#ps大花大花",
+    "href": "index.html#ps大花大花",
+    "title": "what if",
+    "section": "PS：大花大花！",
+    "text": "PS：大花大花！\n这一份读书笔记，想系统性的认真学习因果推断，参考书籍《what if》:\nhttps://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/\n链接中包含可运行代码，便于练习，每周上完课程后将自己所学进行总结，\n进一步复习和完成代码练习，再将学习总结资料搬运到各个平台。",
+    "crumbs": [
+      "Home",
+      "Preface"
     ]
   }
 ]
