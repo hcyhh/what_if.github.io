@@ -1,0 +1,15 @@
+# Randomized experiments
+
+## Randomization
+
+
+## Conditional randomization
+
+
+## Standardization
+
+
+
+## Inverse probability weighting
+
+

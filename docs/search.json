@@ -110,5 +110,101 @@
       "I Causal inference without models",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>A definition of causal effect</span>"
     ]
+  },
+  {
+    "objectID": "A definition of causal effect.html#measures-of-causal-effect",
+    "href": "A definition of causal effect.html#measures-of-causal-effect",
+    "title": "1  A definition of causal effect",
+    "section": "1.3 Measures of causal effect",
+    "text": "1.3 Measures of causal effect\n没有因果效应可以这样判断：\n\n加法尺度或称乘法尺度的选择根据需求确定",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>A definition of causal effect</span>"
+    ]
+  },
+  {
+    "objectID": "A definition of causal effect.html#random-variability",
+    "href": "A definition of causal effect.html#random-variability",
+    "title": "1  A definition of causal effect",
+    "section": "1.4 Random variability",
+    "text": "1.4 Random variability\n抽样得到的率和真实人群的率存在误差，可以通过增大样本量来逼近——大数定理\n\n因果推断中的随机误差还可能来自反事实结果的不确定性 例如：接受治疗90%死亡，不接受20%死亡\nThus, in causal inference, random error derives from sampling variability, nondeterministic counterfactuals, or both.\n\n\n\n\n\n\n进一步理解：nondeterministic counterfactuals\n\n\n\n每个个体暴露后产生结局Y的值不是固定的，而是满足一个分布\n\n每个个体暴露后结局可能分布的条件下的结局期望，代表这个人暴露后的结局 再进一步对所有人求期望",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>A definition of causal effect</span>"
+    ]
+  },
+  {
+    "objectID": "A definition of causal effect.html#causation-versus-association",
+    "href": "A definition of causal effect.html#causation-versus-association",
+    "title": "1  A definition of causal effect",
+    "section": "1.5 Causation versus association",
+    "text": "1.5 Causation versus association\n注意和前面的因果效应的判断区别，这里指的是association 用的是proportion\n\n因果和关联的区别的理解\n 因果效应：整个人群中的暴露的风险，无条件的 效应（关联）：整个人群中，暴露人群中的风险，是有条件的，condition on A = 1\n以后说因果就说 causal effect ，说关联只说effect",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>A definition of causal effect</span>"
+    ]
+  },
+  {
+    "objectID": "A definition of causal effect.html#summarize",
+    "href": "A definition of causal effect.html#summarize",
+    "title": "1  A definition of causal effect",
+    "section": "1.6 Summarize",
+    "text": "1.6 Summarize\n\n个体因果效应和人群平均因果效应的符号表示\nthe sharp causal null hypothesis，群体因果效应为0不代表个体因果效应为0\n因果效应的度量 VS 关联的度量（都是三种）\n因果推断中误差来源有两种，分别是抽样的随机变异和反事实结果的不确定性（个体暴露后的结局不是定值而是服从一个概率分布）\n关联和因果的区别",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>A definition of causal effect</span>"
+    ]
+  },
+  {
+    "objectID": "Randomized experiments.html",
+    "href": "Randomized experiments.html",
+    "title": "2  Randomized experiments",
+    "section": "",
+    "text": "2.1 Randomization",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Randomized experiments</span>"
+    ]
+  },
+  {
+    "objectID": "Randomized experiments.html#conditional-randomization",
+    "href": "Randomized experiments.html#conditional-randomization",
+    "title": "2  Randomized experiments",
+    "section": "2.2 Conditional randomization",
+    "text": "2.2 Conditional randomization",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Randomized experiments</span>"
+    ]
+  },
+  {
+    "objectID": "Randomized experiments.html#standardization",
+    "href": "Randomized experiments.html#standardization",
+    "title": "2  Randomized experiments",
+    "section": "2.3 Standardization",
+    "text": "2.3 Standardization",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Randomized experiments</span>"
+    ]
+  },
+  {
+    "objectID": "Randomized experiments.html#inverse-probability-weighting",
+    "href": "Randomized experiments.html#inverse-probability-weighting",
+    "title": "2  Randomized experiments",
+    "section": "2.4 Inverse probability weighting",
+    "text": "2.4 Inverse probability weighting",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Randomized experiments</span>"
+    ]
   }
 ]

@@ -23,11 +23,9 @@ Individual causal effects are defined as a contrast of the values of counterfact
 ::: callout-note
 ## Fine Point 1.1
 
-no interaction between units或者
-stable-unit-treatment-value assumption (SUTVA)
+no interaction between units或者 stable-unit-treatment-value assumption (SUTVA)
 
 隐含的条件是，每个个体接受治疗后的效应，不会因为其他个体是否接受治疗而改变
-
 :::
 
 ## Average causal effect
@@ -39,17 +37,81 @@ stable-unit-treatment-value assumption (SUTVA)
 ::: callout-note
 ## 群体的平均因果效应不存在不代表个体的因果效应不存在
 
-每个个体间的因果效应虽然不同，但是每个个体的因果效应的均值可能刚好相互抵消
-，这个时候群体因果效应就是0了，如果每个个体都不存在因果效应，群体也没有因果效应，这种情况，称之为the sharp causal null hypothesis 得到满足
-
+每个个体间的因果效应虽然不同，但是每个个体的因果效应的均值可能刚好相互抵消 ，这个时候群体因果效应就是0了，如果每个个体都不存在因果效应，群体也没有因果效应，这种情况，称之为the sharp causal null hypothesis 得到满足
 :::
-
 
 ::: callout-note
 ## Fine Point 1.2
 
-Multiple versions of treatment
-假设干预都是一模一样的，可以称为
-treatment variation irrelevance
-
+Multiple versions of treatment 假设干预都是一模一样的，可以称为 treatment variation irrelevance
 :::
+
+## Measures of causal effect
+
+没有因果效应可以这样判断：
+
+![](images/clipboard-3182407627.png)
+
+加法尺度或称乘法尺度的选择根据需求确定
+
+![](images/clipboard-3343070513.png)
+
+## Random variability
+
+抽样得到的率和真实人群的率存在误差，可以通过增大样本量来逼近——大数定理
+
+![](images/clipboard-109941498.png)
+
+因果推断中的随机误差还可能来自反事实结果的不确定性 例如：接受治疗90%死亡，不接受20%死亡
+
+Thus, in causal inference, random error derives from sampling variability, **nondeterministic counterfactuals**, or both.
+
+::: callout-note
+## 进一步理解：**nondeterministic counterfactuals**
+
+每个个体暴露后产生结局Y的值不是固定的，而是满足一个分布
+
+![](images/clipboard-3549812133.png)
+
+每个个体暴露后结局可能分布的条件下的结局期望，代表这个人暴露后的结局 再进一步对所有人求期望
+:::
+
+## Causation versus association
+
+注意和前面的因果效应的判断区别，这里指的是association 用的是proportion
+
+![](images/clipboard-2235047185.png)
+
+因果和关联的区别的理解
+
+![](images/clipboard-4040316618.png)
+因果效应：整个人群中的暴露的风险，无条件的
+效应（关联）：整个人群中，暴露人群中的风险，是有条件的，condition on A = 1
+
+以后说因果就说 causal effect ，说关联只说effect
+
+## Summarize
+ - 个体因果效应和人群平均因果效应的符号表示
+ - the sharp causal null hypothesis，群体因果效应为0不代表个体因果效应为0
+ - 因果效应的度量 VS 关联的度量（都是三种）
+ - 因果推断中误差来源有两种，分别是抽样的随机变异和反事实结果的不确定性（个体暴露后的结局不是定值而是服从一个概率分布）
+ - 关联和因果的区别
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

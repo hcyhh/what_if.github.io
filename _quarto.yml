@@ -29,7 +29,7 @@ book:
     - part: "I Causal inference without models"
       chapters: 
       - A definition of causal effect.qmd
-      - summary.qmd
+      - Randomized experiments.qmd
       - references.qmd
     - part: "II Causal inference with models"
       chapters: 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>what if - 1&nbsp; A definition of causal effect</title>
+<title>what if - 2&nbsp; Randomized experiments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Randomized experiments.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./A definition of causal effect.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -133,7 +105,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A definition of causal effect.html">I Causal inference without models</a></li><li class="breadcrumb-item"><a href="./A definition of causal effect.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A definition of causal effect</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A definition of causal effect.html">I Causal inference without models</a></li><li class="breadcrumb-item"><a href="./Randomized experiments.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Randomized experiments</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -176,13 +148,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A definition of causal effect.html" class="sidebar-item-text sidebar-link active">
+  <a href="./A definition of causal effect.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A definition of causal effect</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Randomized experiments.html" class="sidebar-item-text sidebar-link">
+  <a href="./Randomized experiments.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Randomized experiments</span></span></a>
   </div>
 </li>
@@ -226,21 +198,19 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#individal-causal-effects" id="toc-individal-causal-effects" class="nav-link active" data-scroll-target="#individal-causal-effects"><span class="header-section-number">1.1</span> Individal causal effects</a></li>
-  <li><a href="#average-causal-effect" id="toc-average-causal-effect" class="nav-link" data-scroll-target="#average-causal-effect"><span class="header-section-number">1.2</span> Average causal effect</a></li>
-  <li><a href="#measures-of-causal-effect" id="toc-measures-of-causal-effect" class="nav-link" data-scroll-target="#measures-of-causal-effect"><span class="header-section-number">1.3</span> Measures of causal effect</a></li>
-  <li><a href="#random-variability" id="toc-random-variability" class="nav-link" data-scroll-target="#random-variability"><span class="header-section-number">1.4</span> Random variability</a></li>
-  <li><a href="#causation-versus-association" id="toc-causation-versus-association" class="nav-link" data-scroll-target="#causation-versus-association"><span class="header-section-number">1.5</span> Causation versus association</a></li>
-  <li><a href="#summarize" id="toc-summarize" class="nav-link" data-scroll-target="#summarize"><span class="header-section-number">1.6</span> Summarize</a></li>
+  <li><a href="#randomization" id="toc-randomization" class="nav-link active" data-scroll-target="#randomization"><span class="header-section-number">2.1</span> Randomization</a></li>
+  <li><a href="#conditional-randomization" id="toc-conditional-randomization" class="nav-link" data-scroll-target="#conditional-randomization"><span class="header-section-number">2.2</span> Conditional randomization</a></li>
+  <li><a href="#standardization" id="toc-standardization" class="nav-link" data-scroll-target="#standardization"><span class="header-section-number">2.3</span> Standardization</a></li>
+  <li><a href="#inverse-probability-weighting" id="toc-inverse-probability-weighting" class="nav-link" data-scroll-target="#inverse-probability-weighting"><span class="header-section-number">2.4</span> Inverse probability weighting</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A definition of causal effect.html">I Causal inference without models</a></li><li class="breadcrumb-item"><a href="./A definition of causal effect.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A definition of causal effect</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A definition of causal effect.html">I Causal inference without models</a></li><li class="breadcrumb-item"><a href="./Randomized experiments.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Randomized experiments</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A definition of causal effect</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Randomized experiments</span></h1>
 </div>
 
 
@@ -257,119 +227,17 @@ window.Quarto = {
 </header>
 
 
-<section id="individal-causal-effects" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="individal-causal-effects"><span class="header-section-number">1.1</span> Individal causal effects</h2>
-<p><strong>对于个体</strong> <span class="math inline">\(i\)</span> 的因果效应符号表达: <span class="math display">\[Y_i^a=1 ≠ Y_i^a=0\]</span></p>
-<p>另外：<span class="math inline">\(Y^{a=1}\)</span> 或 <span class="math inline">\(Y^{a=0}\)</span>，表示随机变量。</p>
-<p><strong>正式的个体因果效应的定义：</strong></p>
-<p><img src="images/clipboard-2531190803.png" class="img-fluid"></p>
-<p><strong>变量</strong>： <span class="math inline">\(Y^{a=1}\)</span> 或 <span class="math inline">\(Y^{a=0}\)</span> 被称为<strong>潜在结局或反事实结局</strong></p>
-<p>对一致性的理解(Consistency)：假设某人接受某种治疗后的结局和观察到的这个人接受治疗的结果一致，用符号表达：if <span class="math inline">\(A_i = a\)</span>, then <span class="math inline">\(Y_i^a = Y_i^A = Y_i\)</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-为什么无法识别个体因果效应
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Individual causal effects are defined as a contrast of the values of counterfactual outcomes, but only one of those outcomes is observed for each individualthe one corresponding to the treatment value actually experienced by the individual. All other counterfactual outcomes remain unobserved. Because of missing data, individual effects cannot be identified, i.e., they cannot be expressed as a function of the observed data (See Fine Point 2.1 for a possible exception.)</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Fine Point 1.1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>no interaction between units或者 stable-unit-treatment-value assumption (SUTVA)</p>
-<p>隐含的条件是，每个个体接受治疗后的效应，不会因为其他个体是否接受治疗而改变</p>
-</div>
-</div>
+<section id="randomization" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="randomization"><span class="header-section-number">2.1</span> Randomization</h2>
 </section>
-<section id="average-causal-effect" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="average-causal-effect"><span class="header-section-number">1.2</span> Average causal effect</h2>
-<p><strong>正式的人群平均因果效应的定义：</strong></p>
-<p><img src="images/clipboard-3383804364.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-群体的平均因果效应不存在不代表个体的因果效应不存在
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>每个个体间的因果效应虽然不同，但是每个个体的因果效应的均值可能刚好相互抵消 ，这个时候群体因果效应就是0了，如果每个个体都不存在因果效应，群体也没有因果效应，这种情况，称之为the sharp causal null hypothesis 得到满足</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Fine Point 1.2
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Multiple versions of treatment 假设干预都是一模一样的，可以称为 treatment variation irrelevance</p>
-</div>
-</div>
+<section id="conditional-randomization" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="conditional-randomization"><span class="header-section-number">2.2</span> Conditional randomization</h2>
 </section>
-<section id="measures-of-causal-effect" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="measures-of-causal-effect"><span class="header-section-number">1.3</span> Measures of causal effect</h2>
-<p>没有因果效应可以这样判断：</p>
-<p><img src="images/clipboard-3182407627.png" class="img-fluid"></p>
-<p>加法尺度或称乘法尺度的选择根据需求确定</p>
-<p><img src="images/clipboard-3343070513.png" class="img-fluid"></p>
+<section id="standardization" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="standardization"><span class="header-section-number">2.3</span> Standardization</h2>
 </section>
-<section id="random-variability" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="random-variability"><span class="header-section-number">1.4</span> Random variability</h2>
-<p>抽样得到的率和真实人群的率存在误差，可以通过增大样本量来逼近——大数定理</p>
-<p><img src="images/clipboard-109941498.png" class="img-fluid"></p>
-<p>因果推断中的随机误差还可能来自反事实结果的不确定性 例如：接受治疗90%死亡，不接受20%死亡</p>
-<p>Thus, in causal inference, random error derives from sampling variability, <strong>nondeterministic counterfactuals</strong>, or both.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-进一步理解：<strong>nondeterministic counterfactuals</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>每个个体暴露后产生结局Y的值不是固定的，而是满足一个分布</p>
-<p><img src="images/clipboard-3549812133.png" class="img-fluid"></p>
-<p>每个个体暴露后结局可能分布的条件下的结局期望，代表这个人暴露后的结局 再进一步对所有人求期望</p>
-</div>
-</div>
-</section>
-<section id="causation-versus-association" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="causation-versus-association"><span class="header-section-number">1.5</span> Causation versus association</h2>
-<p>注意和前面的因果效应的判断区别，这里指的是association 用的是proportion</p>
-<p><img src="images/clipboard-2235047185.png" class="img-fluid"></p>
-<p>因果和关联的区别的理解</p>
-<p><img src="images/clipboard-4040316618.png" class="img-fluid"> 因果效应：整个人群中的暴露的风险，无条件的 效应（关联）：整个人群中，暴露人群中的风险，是有条件的，condition on A = 1</p>
-<p>以后说因果就说 causal effect ，说关联只说effect</p>
-</section>
-<section id="summarize" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="summarize"><span class="header-section-number">1.6</span> Summarize</h2>
-<ul>
-<li>个体因果效应和人群平均因果效应的符号表示</li>
-<li>the sharp causal null hypothesis，群体因果效应为0不代表个体因果效应为0</li>
-<li>因果效应的度量 VS 关联的度量（都是三种）</li>
-<li>因果推断中误差来源有两种，分别是抽样的随机变异和反事实结果的不确定性（个体暴露后的结局不是定值而是服从一个概率分布）</li>
-<li>关联和因果的区别</li>
-</ul>
+<section id="inverse-probability-weighting" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="inverse-probability-weighting"><span class="header-section-number">2.4</span> Inverse probability weighting</h2>
 
 
 </section>
@@ -786,10 +654,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./A definition of causal effect.html" class="pagination-link" aria-label="A definition of causal effect">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">A definition of causal effect</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Randomized experiments.html" class="pagination-link" aria-label="Randomized experiments">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Randomized experiments</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
