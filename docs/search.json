@@ -140,7 +140,7 @@
     "href": "A definition of causal effect.html#causation-versus-association",
     "title": "1  A definition of causal effect",
     "section": "1.5 Causation versus association",
-    "text": "1.5 Causation versus association\n注意和前面的因果效应的判断区别，这里指的是association 用的是proportion\n\n因果和关联的区别的理解\n 因果效应：整个人群中的暴露的风险，无条件的 效应（关联）：整个人群中，暴露人群中的风险，是有条件的，condition on A = 1\n以后说因果就说 causal effect ，说关联只说effect",
+    "text": "1.5 Causation versus association\n注意和前面的因果效应的判断区别，这里指的是association 用的是proportion\n\n因果和关联的区别的理解\n\n因果效应：整个人群中的暴露的风险，无条件的 效应（关联）：整个人群中，暴露人群中的风险，是有条件的，condition on A = 1\n以后说因果就说 causal effect ，说关联只说effect",
     "crumbs": [
       "Home",
       "I Causal inference without models",
@@ -164,7 +164,7 @@
     "href": "Randomized experiments.html",
     "title": "2  Randomized experiments",
     "section": "",
-    "text": "2.1 Randomization",
+    "text": "2.1 Randomization\n随机化可以产生可交换性\n通俗的理解：是否干预和干预后的反事实的结果相互独立， 因为随机化，治疗组和对照组是均一的，也就是说两组的人是可以互相交换的 并且，任何一个人干预后的结果和他是否接受干预（随机分配到治疗组或对照组）是独立的\n理想化的随机试验中，干预组观察到的结局等于全人群干预后的反事实结局 对照组观察到的结局也等于全人群干预后的反事实结局，也即关联等于因果。 \\[ Pr[Y^{a=1}=1]=Pr[Y=1|A=1] \\] \\[ Pr[Y^{a=0}=1]=Pr[Y=1|A=0] \\]\n全可交换性\\(Y^A⊥A\\),均值可交换性\\(Y^a⊥A\\)\n想证明\\(E[Y^a]=E[Y|A=a]\\),第一步一致性：\\(E[Y|A=a]=E[Y^a|A=a]\\) 第二步均值可交换性：\\(E[Y^a|A=a]=E[Y^a]\\)\n\\(Y^a⊥A\\)和\\(Y⊥A\\)不是一回事，前者是干预的分配和干预的反事实结局独立，后者 是干预和结局独立。",
     "crumbs": [
       "Home",
       "I Causal inference without models",
@@ -188,7 +188,7 @@
     "href": "Randomized experiments.html#standardization",
     "title": "2  Randomized experiments",
     "section": "2.3 Standardization",
-    "text": "2.3 Standardization",
+    "text": "2.3 Standardization\n简单说，当满足条件可交换性时，在每个亚组内观察到的\\(Pr[Y|A=1,L=1]=Pr[Y^a|L=1]\\),再根据L进行标准化，标准化的权重为Pr[L=l]",
     "crumbs": [
       "Home",
       "I Causal inference without models",
@@ -200,7 +200,7 @@
     "href": "Randomized experiments.html#inverse-probability-weighting",
     "title": "2  Randomized experiments",
     "section": "2.4 Inverse probability weighting",
-    "text": "2.4 Inverse probability weighting",
+    "text": "2.4 Inverse probability weighting\n\n\n\n\n\n\n逆概率加权和标准化的推导证明（难点）",
     "crumbs": [
       "Home",
       "I Causal inference without models",

@@ -2,14 +2,40 @@
 
 ## Randomization
 
+**随机化可以产生可交换性**
+
+通俗的理解：是否干预和干预后的反事实的结果相互独立， 因为随机化，治疗组和对照组是均一的，也就是说两组的人是可以互相交换的 并且，任何一个人干预后的结果和他是否接受干预（随机分配到治疗组或对照组）是独立的
+
+![](images/clipboard-1175969242.png)
+
+理想化的随机试验中，干预组观察到的结局等于全人群干预后的反事实结局 对照组观察到的结局也等于全人群干预后的反事实结局，也即关联等于因果。 $$ Pr[Y^{a=1}=1]=Pr[Y=1|A=1] $$ $$ Pr[Y^{a=0}=1]=Pr[Y=1|A=0] $$
+
+![](images/clipboard-100985875.png)
+
+全可交换性$Y^A⊥A$,均值可交换性$Y^a⊥A$
+
+想证明$E[Y^a]=E[Y|A=a]$,第一步一致性：$E[Y|A=a]=E[Y^a|A=a]$ 第二步均值可交换性：$E[Y^a|A=a]=E[Y^a]$
+
+![](images/clipboard-3891507002.png)
+
+$Y^a⊥A$和$Y⊥A$不是一回事，前者是干预的分配和干预的反事实结局独立，后者 是干预和结局独立。
 
 ## Conditional randomization
 
+![](images/clipboard-1545896104.png)
+
+![](images/clipboard-1684929687.png)
 
 ## Standardization
 
+简单说，当满足条件可交换性时，在每个亚组内观察到的$Pr[Y|A=1,L=1]=Pr[Y^a|L=1]$,再根据L进行标准化，标准化的权重为Pr\[L=l\]
 
+![](images/clipboard-1042189828.png)
 
 ## Inverse probability weighting
 
+![![](images/clipboard-3984845943.png)](images/clipboard-1556423419.png)
 
+逆概率加权和标准化的推导证明（难点）
+
+![](images/clipboard-2553326082.png)

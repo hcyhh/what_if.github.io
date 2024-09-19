@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -229,15 +258,36 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="randomization" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="randomization"><span class="header-section-number">2.1</span> Randomization</h2>
+<p><strong>随机化可以产生可交换性</strong></p>
+<p>通俗的理解：是否干预和干预后的反事实的结果相互独立， 因为随机化，治疗组和对照组是均一的，也就是说两组的人是可以互相交换的 并且，任何一个人干预后的结果和他是否接受干预（随机分配到治疗组或对照组）是独立的</p>
+<p><img src="images/clipboard-1175969242.png" class="img-fluid"></p>
+<p>理想化的随机试验中，干预组观察到的结局等于全人群干预后的反事实结局 对照组观察到的结局也等于全人群干预后的反事实结局，也即关联等于因果。 <span class="math display">\[ Pr[Y^{a=1}=1]=Pr[Y=1|A=1] \]</span> <span class="math display">\[ Pr[Y^{a=0}=1]=Pr[Y=1|A=0] \]</span></p>
+<p><img src="images/clipboard-100985875.png" class="img-fluid"></p>
+<p>全可交换性<span class="math inline">\(Y^A⊥A\)</span>,均值可交换性<span class="math inline">\(Y^a⊥A\)</span></p>
+<p>想证明<span class="math inline">\(E[Y^a]=E[Y|A=a]\)</span>,第一步一致性：<span class="math inline">\(E[Y|A=a]=E[Y^a|A=a]\)</span> 第二步均值可交换性：<span class="math inline">\(E[Y^a|A=a]=E[Y^a]\)</span></p>
+<p><img src="images/clipboard-3891507002.png" class="img-fluid"></p>
+<p><span class="math inline">\(Y^a⊥A\)</span>和<span class="math inline">\(Y⊥A\)</span>不是一回事，前者是干预的分配和干预的反事实结局独立，后者 是干预和结局独立。</p>
 </section>
 <section id="conditional-randomization" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="conditional-randomization"><span class="header-section-number">2.2</span> Conditional randomization</h2>
+<p><img src="images/clipboard-1545896104.png" class="img-fluid"></p>
+<p><img src="images/clipboard-1684929687.png" class="img-fluid"></p>
 </section>
 <section id="standardization" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="standardization"><span class="header-section-number">2.3</span> Standardization</h2>
+<p>简单说，当满足条件可交换性时，在每个亚组内观察到的<span class="math inline">\(Pr[Y|A=1,L=1]=Pr[Y^a|L=1]\)</span>,再根据L进行标准化，标准化的权重为Pr[L=l]</p>
+<p><img src="images/clipboard-1042189828.png" class="img-fluid"></p>
 </section>
 <section id="inverse-probability-weighting" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="inverse-probability-weighting"><span class="header-section-number">2.4</span> Inverse probability weighting</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1556423419.png" class="img-fluid figure-img"></p>
+<figcaption><img src="images/clipboard-3984845943.png" class="img-fluid figure-img"></figcaption>
+</figure>
+</div>
+<p>逆概率加权和标准化的推导证明（难点）</p>
+<p><img src="images/clipboard-2553326082.png" class="img-fluid"></p>
 
 
 </section>
