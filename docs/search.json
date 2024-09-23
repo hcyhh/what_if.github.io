@@ -206,5 +206,77 @@
       "I Causal inference without models",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Randomized experiments</span>"
     ]
+  },
+  {
+    "objectID": "Observation Study.html",
+    "href": "Observation Study.html",
+    "title": "3  Observation Study",
+    "section": "",
+    "text": "3.1 Identifiability conditions",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Observation Study</span>"
+    ]
+  },
+  {
+    "objectID": "Observation Study.html#exchangeability",
+    "href": "Observation Study.html#exchangeability",
+    "title": "3  Observation Study",
+    "section": "3.2 Exchangeability",
+    "text": "3.2 Exchangeability\n如何理解条件可交换性\n\n\n由于存在未测混在，你无法知道是否收集到了足够多的信息，也无法真的验证在不同的L层内影响结局的predictor真的均衡了，只能凭借专家知识。",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Observation Study</span>"
+    ]
+  },
+  {
+    "objectID": "Observation Study.html#positivity",
+    "href": "Observation Study.html#positivity",
+    "title": "3  Observation Study",
+    "section": "3.3 Positivity",
+    "text": "3.3 Positivity",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Observation Study</span>"
+    ]
+  },
+  {
+    "objectID": "Observation Study.html#consistency-first-define-the-counterfactual-outcome",
+    "href": "Observation Study.html#consistency-first-define-the-counterfactual-outcome",
+    "title": "3  Observation Study",
+    "section": "3.4 Consistency: First, define the counterfactual outcome",
+    "text": "3.4 Consistency: First, define the counterfactual outcome",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Observation Study</span>"
+    ]
+  },
+  {
+    "objectID": "Observation Study.html#consistency-second-link-counterfactuals-to-the-observed-data",
+    "href": "Observation Study.html#consistency-second-link-counterfactuals-to-the-observed-data",
+    "title": "3  Observation Study",
+    "section": "3.5 Consistency: Second, link counterfactuals to the observed data",
+    "text": "3.5 Consistency: Second, link counterfactuals to the observed data",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Observation Study</span>"
+    ]
+  },
+  {
+    "objectID": "Observation Study.html#the-target-trial",
+    "href": "Observation Study.html#the-target-trial",
+    "title": "3  Observation Study",
+    "section": "3.6 The target trial",
+    "text": "3.6 The target trial",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Observation Study</span>"
+    ]
   }
 ]

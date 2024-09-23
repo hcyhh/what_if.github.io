@@ -1,0 +1,25 @@
+# Observation Study
+
+## Identifiability conditions
+
+![](images/clipboard-2264430866.png)
+
+## Exchangeability
+
+如何理解条件可交换性
+
+![](images/clipboard-1498283511.png)
+
+![](images/clipboard-2228293935.png)
+
+由于存在未测混在，你无法知道是否收集到了足够多的信息，也无法真的验证在不同的L层内影响结局的predictor真的均衡了，只能凭借专家知识。
+
+![](images/clipboard-3128234180.png)
+
+## Positivity
+
+## Consistency: First, define the counterfactual outcome
+
+## Consistency: Second, link counterfactuals to the observed data
+
+## The target trial
