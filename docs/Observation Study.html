@@ -249,15 +249,32 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="positivity" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="positivity"><span class="header-section-number">3.3</span> Positivity</h2>
+<p>In other words, we must ensure that there is a probability greater than zero—a positive probability—of being assigned to each of the treatment levels. This is the positivity condition.</p>
+<p>对于不需要调整的其他变量的分层下无需大于0，比如对于信上帝还是新默罕默德对于治疗心脏病的手术分配来说，无关紧要，不需要在信仰分层中概率仍然大于0</p>
+<p><img src="images/clipboard-1868376496.png" class="img-fluid"></p>
+<p><img src="images/clipboard-605171185.png" class="img-fluid"></p>
 </section>
 <section id="consistency-first-define-the-counterfactual-outcome" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="consistency-first-define-the-counterfactual-outcome"><span class="header-section-number">3.4</span> Consistency: First, define the counterfactual outcome</h2>
+<p>一致性的定义：</p>
+<p><img src="images/clipboard-4106413790.png" class="img-fluid"></p>
+<p>为了保证一致性的成立，需要明确定义干预。</p>
+<p>比如：研究体重和死亡关系，一种通过暴饮暴食增重，一种通过降低体育运动增重，结局就千差万别，这两种就是不够明确的干预定义。然而，如何知道我们的暴露定义足够明确呢？答案是不知道，尽可能的定义足够充分的干预/暴露。</p>
 </section>
 <section id="consistency-second-link-counterfactuals-to-the-observed-data" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="consistency-second-link-counterfactuals-to-the-observed-data"><span class="header-section-number">3.5</span> Consistency: Second, link counterfactuals to the observed data</h2>
+<p>核心思想就是：干预定义的过于明确了以后，在观察研究中做不到这种干预。比如定义做手术的医生必须是华西毕业的工作10年以上的，并且没有出过事故的，在观察性研究中就很难做到。</p>
 </section>
 <section id="the-target-trial" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="the-target-trial"><span class="header-section-number">3.6</span> The target trial</h2>
+<p>一致性、可交换性、正数性成立下，用观察性研究数据，基于标准化和逆概率加权，模拟目标试验。</p>
+<p>讨论一个案例：研究肥胖和死亡的因果效应，对于肥胖我们很难定义是通过减少运动的肥胖还是暴饮暴食的肥胖，干预不明确，因果问题因果效应也就不明确，一致性也无法保证。</p>
+<p>但是，有人会说，通过减轻体重许多死亡可以得到避免，即使干预（肥胖）定义的不够明确。</p>
+<p>围绕这种想法讨论：</p>
+<p>1、首先，不特定的干预措施可能是不合理的或不切实际的。例如，假设一些研究人员对减肥的健康影响感兴趣，但他们没有提出并明确模拟一个目标试验。相反，他们进行了一个简化的分析，比较了肥胖和非肥胖个体在40岁时的死亡风险。该比较暗含着一个目标试验，即在基线(通过一次大规模的吸脂术?)时，肥胖个体被瞬时转化为体重指数为25的个体。这种目标试验是无法被模仿的，因为很少有人，在真实世界中经历如此剧烈的瞬间变化，因此反事实的结果一般无法与观察到的结果联系起来。事实上，将观察数据分析锚定到目标试验中，不仅有助于尖锐因果问题，而且使因果推断对决策者更具有相关性。即使可获得的数据不足以模拟定义良好的干预措施的对比，情况也是如此。</p>
+<p>2、其次，不明确的干预措施使得互换性和积极性难以实现。由于导致条件可交换性的协变量集合L在不同干预措施之间可能存在差异，如果我们尽可能地放弃对干预措施的刻画，观察性研究中关于条件可交换性的通常不确定性将大大增加。此外，如果干预仍然是未指定的，就很难描述L的值的组合，这将使观察数据无法接受干预，这增加了无意中违反正性的风险。</p>
+<p>因此，当一个目标试验不能被合理地指定和模拟，或者更一般地，当反事实结果没有被充分定义时，我们可以做什么?</p>
+<p>答：non-causal prediction ，并承认关联的大小并不一定与因果的大小相对应。</p>
 
 
 </section>
