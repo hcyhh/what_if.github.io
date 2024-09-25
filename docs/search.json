@@ -278,5 +278,17 @@
       "I Causal inference without models",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Observation Study</span>"
     ]
+  },
+  {
+    "objectID": "Observation Study.html#summary",
+    "href": "Observation Study.html#summary",
+    "title": "3  Observation Study",
+    "section": "3.7 Summary",
+    "text": "3.7 Summary\n\n观察性研究模拟目标试验的三个条件：一致性、可交换性、正数性\n通过明确定义的干预有助于想清楚因果问题\n模糊的干预只能作为非因果预测发挥作用，并承认关联大小不一定与因果大小相对应",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Observation Study</span>"
+    ]
   }
 ]
