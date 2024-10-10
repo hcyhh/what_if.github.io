@@ -524,7 +524,7 @@
     "href": "Graphical representation of causal effects.html#the-structure-of-effect-modification",
     "title": "6  Graphical representation of causal effects",
     "section": "6.6 The structure of effect modification",
-    "text": "6.6 The structure of effect modification\n\n\n\n\n\nV是效应修饰因子，由于A是随机分配的所以V没有箭头指向A\n\n\n\n\n\n\n\n这里的U也可以作为效应修饰因子的代理变量\n\n同理 W也可以",
+    "text": "6.6 The structure of effect modification\n\n\n\n\n\nV是效应修饰因子，由于A是随机分配的所以V没有箭头指向A\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n这里的U也可以作为效应修饰因子的代理变量\n\n\n\n\n\n同理 W也可以",
     "crumbs": [
       "Home",
       "I Causal inference without models",

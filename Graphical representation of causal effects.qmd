@@ -130,12 +130,14 @@ common cause :存在时，关联不等于因果，也称为混杂 common effect:
 
 V是效应修饰因子，由于A是随机分配的所以V没有箭头指向A
 
-![![](images/clipboard-629680314.png)](images/clipboard-2186019405.png)
+![](images/clipboard-629680314.png){fig-align="center"}
 
-![](images/clipboard-3396573334.png)
+![](images/clipboard-2186019405.png){fig-align="center"}
+
+![](images/clipboard-3396573334.png){fig-align="center"}
 
 这里的U也可以作为效应修饰因子的代理变量
 
-![](images/clipboard-4179697386.png)
+![](images/clipboard-4179697386.png){fig-align="center"}
 
 同理 W也可以
