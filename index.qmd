@@ -1,5 +1,7 @@
 # Preface {.unnumbered}
+
 ## PS：大花大花！
+
 这一份读书笔记，想系统性的认真学习因果推断，参考书籍《what if》:
 
 <https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/>
@@ -9,4 +11,3 @@
 进一步复习和完成代码练习，再将学习总结资料搬运到各个平台。
 
 ![](images/whatif-01.png)
-
