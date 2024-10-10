@@ -290,5 +290,89 @@
       "I Causal inference without models",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Observation Study</span>"
     ]
+  },
+  {
+    "objectID": "Effect Modification.html",
+    "href": "Effect Modification.html",
+    "title": "4  Effect Modificaion",
+    "section": "",
+    "text": "4.1 Heterogeneity of treatment effects\n效应修饰定义：\n效应修饰的判断会因为判断的尺度不同而不同\n在结果展示时，推荐两种尺度都展示",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Effect Modificaion</span>"
+    ]
+  },
+  {
+    "objectID": "Effect Modification.html#heterogeneity-of-treatment-effects",
+    "href": "Effect Modification.html#heterogeneity-of-treatment-effects",
+    "title": "4  Effect Modificaion",
+    "section": "",
+    "text": "效应修饰的判断会因为判断的尺度不同而不同",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Effect Modificaion</span>"
+    ]
+  },
+  {
+    "objectID": "Effect Modification.html#stratification-to-identify-effect-modification",
+    "href": "Effect Modification.html#stratification-to-identify-effect-modification",
+    "title": "4  Effect Modificaion",
+    "section": "4.2 Stratification to identify effect modification",
+    "text": "4.2 Stratification to identify effect modification",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Effect Modificaion</span>"
+    ]
+  },
+  {
+    "objectID": "Effect Modification.html#why-care-about-effect-modification",
+    "href": "Effect Modification.html#why-care-about-effect-modification",
+    "title": "4  Effect Modificaion",
+    "section": "4.3 Why care about effect modification",
+    "text": "4.3 Why care about effect modification\n\n\n不同效应修饰因子人群中 的因果效应不同，影响结果外推\n寻找干预最益的人群,有助于新机制的发现",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Effect Modificaion</span>"
+    ]
+  },
+  {
+    "objectID": "Effect Modification.html#stratification-as-a-form-of-adjustment",
+    "href": "Effect Modification.html#stratification-as-a-form-of-adjustment",
+    "title": "4  Effect Modificaion",
+    "section": "4.4 Stratification as a form of adjustment",
+    "text": "4.4 Stratification as a form of adjustment\nIn summary, standardization (or IP weighting) is used to adjust for L and stratification is used to identify effect modification by V .",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Effect Modificaion</span>"
+    ]
+  },
+  {
+    "objectID": "Effect Modification.html#matching-as-another-form-of-adjustment",
+    "href": "Effect Modification.html#matching-as-another-form-of-adjustment",
+    "title": "4  Effect Modificaion",
+    "section": "4.5 Matching as another form of adjustment",
+    "text": "4.5 Matching as another form of adjustment",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Effect Modificaion</span>"
+    ]
+  },
+  {
+    "objectID": "Effect Modification.html#effect-modification-and-adjustment-methods",
+    "href": "Effect Modification.html#effect-modification-and-adjustment-methods",
+    "title": "4  Effect Modificaion",
+    "section": "4.6 Effect modification and adjustment methods",
+    "text": "4.6 Effect modification and adjustment methods",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Effect Modificaion</span>"
+    ]
   }
 ]

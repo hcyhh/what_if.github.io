@@ -1,0 +1,58 @@
+# Effect Modificaion
+
+## Heterogeneity of treatment effects
+
+![](images/clipboard-1078421302.png)
+
+效应修饰定义：
+
+![](images/clipboard-745804002.png)
+
+效应修饰的判断会因为判断的尺度不同而不同
+
+![](images/clipboard-576058242.png)
+
+在结果展示时，推荐两种尺度都展示
+
+## Stratification to identify effect modification
+
+![](images/clipboard-1836745259.png)
+
+![![](images/clipboard-1481743108.png)](images/clipboard-2476478384.png)
+
+![![](images/clipboard-1915073993.png)](images/clipboard-1250445969.png)
+
+## Why care about effect modification
+
+![](images/clipboard-742917807.png)
+
+-   不同效应修饰因子人群中 的因果效应不同，影响结果外推
+-   寻找干预最益的人群,有助于新机制的发现
+
+## Stratification as a form of adjustment
+
+In summary, standardization (or IP weighting) is used to adjust for L and stratification is used to identify effect modification by V .
+
+![](images/clipboard-2535409505.png)
+
+![](images/clipboard-1573943277.png)
+
+![](images/clipboard-1312263697.png)
+
+![](images/clipboard-3106565180.png)
+
+![](images/clipboard-3895681304.png)
+
+![](images/clipboard-2977930090.png)![](images/clipboard-3062156794.png)![](images/clipboard-1760949857.png)
+
+![](images/clipboard-3139889567.png)
+
+## Matching as another form of adjustment
+
+![![](images/clipboard-2738004616.png)](images/clipboard-2440836101.png)
+
+![](images/clipboard-1502185710.png)
+
+## Effect modification and adjustment methods
+
+![![](images/clipboard-543324628.png)![](images/clipboard-2475749118.png)![](images/clipboard-395527669.png)![](images/clipboard-1820962982.png)![](images/clipboard-625744420.png)![](images/clipboard-459052986.png)![](images/clipboard-143550751.png)](images/clipboard-1781638484.png)

@@ -31,6 +31,8 @@ book:
       - A definition of causal effect.qmd
       - Randomized experiments.qmd
       - Observation Study.qmd
+      - Effect Modification.qmd
+      - Interaction.qmd
       - references.qmd
     - part: "II Causal inference with models"
       chapters: 
