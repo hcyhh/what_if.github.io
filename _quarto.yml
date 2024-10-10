@@ -33,6 +33,11 @@ book:
       - Observation Study.qmd
       - Effect Modification.qmd
       - Interaction.qmd
+      - Graphical representation of causal effects.qmd
+      - Confounding.qmd
+      - Selection bias.qmd
+      - Measurement bias and “Noncausal” diagrams.qmd
+      - Random variability.qmd
       - references.qmd
     - part: "II Causal inference with models"
       chapters: 

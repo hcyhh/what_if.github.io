@@ -28,5 +28,20 @@
   },
   "Interaction.qmd": {
     "Interaction.html": "d906ad79"
+  },
+  "Graphical representation of causal effects.qmd": {
+    "Graphical representation of causal effects.html": "28510831"
+  },
+  "Confounding.qmd": {
+    "Confounding.html": "f3e61310"
+  },
+  "Selection bias.qmd": {
+    "Selection bias.html": "7b4c5495"
+  },
+  "Measurement bias and “Noncausal” diagrams.qmd": {
+    "Measurement bias and “Noncausal” diagrams.html": "cc0a8d46"
+  },
+  "Random variability.qmd": {
+    "Random variability.html": "b7d36187"
   }
 }

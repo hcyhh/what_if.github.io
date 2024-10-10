@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>what if</title>
+<title>what if - 5&nbsp; Interaction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./Graphical representation of causal effects.html" rel="next">
 <link href="./Effect Modification.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -105,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A definition of causal effect.html">I Causal inference without models</a></li><li class="breadcrumb-item"><a href="./Interaction.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interaction.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A definition of causal effect.html">I Causal inference without models</a></li><li class="breadcrumb-item"><a href="./Interaction.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interaction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -173,7 +173,37 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Interaction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interaction.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interaction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Graphical representation of causal effects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical representation of causal effects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Confounding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Confounding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Selection bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Selection bias</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Measurement bias and “Noncausal” diagrams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Measurement bias and “Noncausal” diagrams</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Random variability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Random variability</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -196,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Why model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Why model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Why model</span></span></a>
   </div>
 </li>
       </ul>
@@ -211,15 +241,62 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#interaction-requires-a-joint-intervention" id="toc-interaction-requires-a-joint-intervention" class="nav-link active" data-scroll-target="#interaction-requires-a-joint-intervention"><span class="header-section-number">5.1</span> Interaction requires a joint intervention</a></li>
+  <li><a href="#identifying-interaction" id="toc-identifying-interaction" class="nav-link" data-scroll-target="#identifying-interaction"><span class="header-section-number">5.2</span> Identifying interaction</a></li>
+  <li><a href="#counterfactual-response-types-and-interaction" id="toc-counterfactual-response-types-and-interaction" class="nav-link" data-scroll-target="#counterfactual-response-types-and-interaction"><span class="header-section-number">5.3</span> Counterfactual response types and interaction</a></li>
+  <li><a href="#sufficient-causes" id="toc-sufficient-causes" class="nav-link" data-scroll-target="#sufficient-causes"><span class="header-section-number">5.4</span> Sufficient causes</a></li>
+  <li><a href="#sufficient-cause-interaction" id="toc-sufficient-cause-interaction" class="nav-link" data-scroll-target="#sufficient-cause-interaction"><span class="header-section-number">5.5</span> Sufficient cause interaction</a></li>
+  <li><a href="#counterfactuals-or-sufficient-component-causes" id="toc-counterfactuals-or-sufficient-component-causes" class="nav-link" data-scroll-target="#counterfactuals-or-sufficient-component-causes"><span class="header-section-number">5.6</span> Counterfactuals or sufficient-component causes?</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A definition of causal effect.html">I Causal inference without models</a></li><li class="breadcrumb-item"><a href="./Interaction.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interaction</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interaction</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<section id="interaction-requires-a-joint-intervention" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="interaction-requires-a-joint-intervention"><span class="header-section-number">5.1</span> Interaction requires a joint intervention</h2>
+</section>
+<section id="identifying-interaction" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="identifying-interaction"><span class="header-section-number">5.2</span> Identifying interaction</h2>
+</section>
+<section id="counterfactual-response-types-and-interaction" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="counterfactual-response-types-and-interaction"><span class="header-section-number">5.3</span> Counterfactual response types and interaction</h2>
+</section>
+<section id="sufficient-causes" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sufficient-causes"><span class="header-section-number">5.4</span> Sufficient causes</h2>
+</section>
+<section id="sufficient-cause-interaction" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="sufficient-cause-interaction"><span class="header-section-number">5.5</span> Sufficient cause interaction</h2>
+</section>
+<section id="counterfactuals-or-sufficient-component-causes" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="counterfactuals-or-sufficient-component-causes"><span class="header-section-number">5.6</span> Counterfactuals or sufficient-component causes?</h2>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -638,8 +715,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Graphical representation of causal effects.html" class="pagination-link" aria-label="Graphical representation of causal effects">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical representation of causal effects</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

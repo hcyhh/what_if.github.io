@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>what if - 4&nbsp; Effect Modificaion</title>
+<title>what if - 6&nbsp; Graphical representation of causal effects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Interaction.html" rel="next">
-<link href="./Observation Study.html" rel="prev">
+<link href="./Confounding.html" rel="next">
+<link href="./Interaction.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -105,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A definition of causal effect.html">I Causal inference without models</a></li><li class="breadcrumb-item"><a href="./Effect Modification.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Effect Modificaion</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A definition of causal effect.html">I Causal inference without models</a></li><li class="breadcrumb-item"><a href="./Graphical representation of causal effects.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical representation of causal effects</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -166,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Effect Modification.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Effect Modification.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Effect Modificaion</span></span></a>
   </div>
 </li>
@@ -178,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Graphical representation of causal effects.html" class="sidebar-item-text sidebar-link">
+  <a href="./Graphical representation of causal effects.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical representation of causal effects</span></span></a>
   </div>
 </li>
@@ -246,21 +275,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#heterogeneity-of-treatment-effects" id="toc-heterogeneity-of-treatment-effects" class="nav-link active" data-scroll-target="#heterogeneity-of-treatment-effects"><span class="header-section-number">4.1</span> Heterogeneity of treatment effects</a></li>
-  <li><a href="#stratification-to-identify-effect-modification" id="toc-stratification-to-identify-effect-modification" class="nav-link" data-scroll-target="#stratification-to-identify-effect-modification"><span class="header-section-number">4.2</span> Stratification to identify effect modification</a></li>
-  <li><a href="#why-care-about-effect-modification" id="toc-why-care-about-effect-modification" class="nav-link" data-scroll-target="#why-care-about-effect-modification"><span class="header-section-number">4.3</span> Why care about effect modification</a></li>
-  <li><a href="#stratification-as-a-form-of-adjustment" id="toc-stratification-as-a-form-of-adjustment" class="nav-link" data-scroll-target="#stratification-as-a-form-of-adjustment"><span class="header-section-number">4.4</span> Stratification as a form of adjustment</a></li>
-  <li><a href="#matching-as-another-form-of-adjustment" id="toc-matching-as-another-form-of-adjustment" class="nav-link" data-scroll-target="#matching-as-another-form-of-adjustment"><span class="header-section-number">4.5</span> Matching as another form of adjustment</a></li>
-  <li><a href="#effect-modification-and-adjustment-methods" id="toc-effect-modification-and-adjustment-methods" class="nav-link" data-scroll-target="#effect-modification-and-adjustment-methods"><span class="header-section-number">4.6</span> Effect modification and adjustment methods</a></li>
+  <li><a href="#causal-diagrams" id="toc-causal-diagrams" class="nav-link active" data-scroll-target="#causal-diagrams"><span class="header-section-number">6.1</span> Causal diagrams</a></li>
+  <li><a href="#causal-diagrams-and-marginal-independence" id="toc-causal-diagrams-and-marginal-independence" class="nav-link" data-scroll-target="#causal-diagrams-and-marginal-independence"><span class="header-section-number">6.2</span> Causal diagrams and marginal independence</a></li>
+  <li><a href="#causal-diagrams-and-conditional-independence" id="toc-causal-diagrams-and-conditional-independence" class="nav-link" data-scroll-target="#causal-diagrams-and-conditional-independence"><span class="header-section-number">6.3</span> Causal diagrams and conditional independence</a></li>
+  <li><a href="#positivity-and-consistency-in-causal-diagrams" id="toc-positivity-and-consistency-in-causal-diagrams" class="nav-link" data-scroll-target="#positivity-and-consistency-in-causal-diagrams"><span class="header-section-number">6.4</span> Positivity and consistency in causal diagrams</a></li>
+  <li><a href="#a-structural-classification-of-bias" id="toc-a-structural-classification-of-bias" class="nav-link" data-scroll-target="#a-structural-classification-of-bias"><span class="header-section-number">6.5</span> A structural classification of bias</a></li>
+  <li><a href="#the-structure-of-effect-modification" id="toc-the-structure-of-effect-modification" class="nav-link" data-scroll-target="#the-structure-of-effect-modification"><span class="header-section-number">6.6</span> The structure of effect modification</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A definition of causal effect.html">I Causal inference without models</a></li><li class="breadcrumb-item"><a href="./Effect Modification.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Effect Modificaion</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A definition of causal effect.html">I Causal inference without models</a></li><li class="breadcrumb-item"><a href="./Graphical representation of causal effects.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical representation of causal effects</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Effect Modificaion</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical representation of causal effects</span></h1>
 </div>
 
 
@@ -277,68 +306,175 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="heterogeneity-of-treatment-effects" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="heterogeneity-of-treatment-effects"><span class="header-section-number">4.1</span> Heterogeneity of treatment effects</h2>
-<p><img src="images/clipboard-1078421302.png" class="img-fluid"></p>
-<p>效应修饰定义：</p>
-<p><img src="images/clipboard-745804002.png" class="img-fluid"></p>
-<p>效应修饰的判断会因为判断的尺度不同而不同</p>
-<p><img src="images/clipboard-576058242.png" class="img-fluid"></p>
-<p>在结果展示时，推荐两种尺度都展示</p>
-</section>
-<section id="stratification-to-identify-effect-modification" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="stratification-to-identify-effect-modification"><span class="header-section-number">4.2</span> Stratification to identify effect modification</h2>
-<p><img src="images/clipboard-1836745259.png" class="img-fluid"></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-2476478384.png" class="img-fluid figure-img"></p>
-<figcaption><img src="images/clipboard-1481743108.png" class="img-fluid figure-img"></figcaption>
-</figure>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/clipboard-1250445969.png" class="img-fluid figure-img"></p>
-<figcaption><img src="images/clipboard-1915073993.png" class="img-fluid figure-img"></figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+前言： 为什么要用图形来表示因果效应 ？
 </div>
-</section>
-<section id="why-care-about-effect-modification" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="why-care-about-effect-modification"><span class="header-section-number">4.3</span> Why care about effect modification</h2>
-<p><img src="images/clipboard-742917807.png" class="img-fluid"></p>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>不同效应修饰因子人群中 的因果效应不同，影响结果外推</li>
-<li>寻找干预最益的人群,有助于新机制的发现</li>
+<li>因果效应的图形化表达，有助于理清因果概念便于沟通。</li>
+<li>图形化表达遵循了先做出假设，再得出结论的理念。</li>
+</ul>
+</div>
+</div>
+<section id="causal-diagrams" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="causal-diagrams"><span class="header-section-number">6.1</span> Causal diagrams</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3062177108.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p><strong>图中总结的要点如下：</strong></p>
+<ul>
+<li>3个nodes代表L,A,Y,分别为疾病严重程度，心脏移植，死亡</li>
+<li>3个edges（箭头线）表示这因果效应的指向</li>
+<li>这种图称为directed acyclic graphs;DAGs</li>
+<li>Directed：L -&gt; A -&gt; Y表示方向; acyclic:无环，一个变量无法是自己的原因</li>
+<li>图6.1是观察性研究，病情严重程度是心脏移植和死亡的common cause</li>
+<li>图6.2是随机试验，L在不同组随机分配，不再是A和Y的common cause</li>
 </ul>
 </section>
-<section id="stratification-as-a-form-of-adjustment" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="stratification-as-a-form-of-adjustment"><span class="header-section-number">4.4</span> Stratification as a form of adjustment</h2>
-<p>In summary, standardization (or IP weighting) is used to adjust for L and stratification is used to identify effect modification by V .</p>
-<p><img src="images/clipboard-2535409505.png" class="img-fluid"></p>
-<p><img src="images/clipboard-1573943277.png" class="img-fluid"></p>
-<p><img src="images/clipboard-1312263697.png" class="img-fluid"></p>
-<p><img src="images/clipboard-3106565180.png" class="img-fluid"></p>
-<p><img src="images/clipboard-3895681304.png" class="img-fluid"></p>
-<p><img src="images/clipboard-2977930090.png" class="img-fluid"><img src="images/clipboard-3062156794.png" class="img-fluid"><img src="images/clipboard-1760949857.png" class="img-fluid"></p>
-<p><img src="images/clipboard-3139889567.png" class="img-fluid"></p>
-</section>
-<section id="matching-as-another-form-of-adjustment" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="matching-as-another-form-of-adjustment"><span class="header-section-number">4.5</span> Matching as another form of adjustment</h2>
+<section id="causal-diagrams-and-marginal-independence" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="causal-diagrams-and-marginal-independence"><span class="header-section-number">6.2</span> Causal diagrams and marginal independence</h2>
+<p><strong>例子1：</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-2440836101.png" class="img-fluid figure-img"></p>
-<figcaption><img src="images/clipboard-2738004616.png" class="img-fluid figure-img"></figcaption>
+<p><img src="images/clipboard-2824199779.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
-<p><img src="images/clipboard-1502185710.png" class="img-fluid"></p>
-</section>
-<section id="effect-modification-and-adjustment-methods" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="effect-modification-and-adjustment-methods"><span class="header-section-number">4.6</span> Effect modification and adjustment methods</h2>
+<ul>
+<li>A表示服用阿司匹林；Y表示心血管疾病</li>
+</ul>
+<p>可看作一个RCT，可以知道服用阿司匹林和心血管疾病之间有因果效应，同样的两者之间也存在关联（无方向），即：</p>
+<p><span class="math display">\[
+Pr[Y^{a=1}=1] ≠ Pr[Y^{a=0}=1] (有causation)
+\]</span></p>
+<p><span class="math display">\[
+Pr[Y=1/A=1] ≠ Pr[Y=1/A=0] (有association)
+\]</span></p>
+<p><strong>例子2：</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-1781638484.png" class="img-fluid figure-img"></p>
-<figcaption><img src="images/clipboard-543324628.png" class="img-fluid figure-img"><img src="images/clipboard-2475749118.png" class="img-fluid figure-img"><img src="images/clipboard-395527669.png" class="img-fluid figure-img"><img src="images/clipboard-1820962982.png" class="img-fluid figure-img"><img src="images/clipboard-625744420.png" class="img-fluid figure-img"><img src="images/clipboard-459052986.png" class="img-fluid figure-img"><img src="images/clipboard-143550751.png" class="img-fluid figure-img"></figcaption>
+<p><img src="images/clipboard-890249566.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
+<ul>
+<li>A表示带打火机；Y表示肺癌；L表示抽烟</li>
+</ul>
+<p>带打火机和肺癌之间没有<strong>因果</strong>效应，故图中没有箭头。</p>
+<p>看作一个观察性研究，我们已知带打火机和肺癌没有因果效应，那么带打火机和肺癌存在关联吗？ 抽烟的人会带打火机,抽烟也会导致更大的肺癌风险，表现在图6.3中即A和Y之间通过一个commnon cause - <strong>L</strong> 建立起了关联，association存在</p>
+<p>类比上面即：</p>
+<p><span class="math display">\[
+Pr[Y^{a=1}=1] = Pr[Y^{a=0}=1] (无causation)
+\]</span></p>
+<p><span class="math display">\[
+Pr[Y=1/A=1] ≠ Pr[Y=1/A=0] (有association)
+\]</span></p>
+<p>如果现在condition on是否抽烟的条件下，比如已知这个人不抽烟，那么知道他带打火机并不能知道他是否患肺癌，关联被切断了。</p>
+<p><strong>例子3：</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2982990840.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<ul>
+<li>A表示拍马屁；Y表示个人能力；L表示升职</li>
+</ul>
+<p>此时的L是A和Y的common <strong>effect</strong>,称为collider（因为两个箭头都指向它） 考虑拍马屁和个人能力之间存在关联吗？ 拍马屁会导致升职，个人能力也导致升职，拍马屁和个人能力是相互独立的。即不存在关联。</p>
+<p><span class="math display">\[
+Pr[Y^{a=1}=1] = Pr[Y^{a=0}=1] (无causation)
+\]</span></p>
+<p><span class="math display">\[
+Pr[Y=1/A=1] = Pr[Y=1/A=0] (无association)
+\]</span></p>
+<p>只有在condition on 是否升职的条件下，关联才会重新被建立，比如已知这个人升职了，我知道他个人能力不强那么大概率他会拍马屁，关联重新被建立。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Summary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>单箭头的因果效应存在双向的关联</li>
+<li>common cause 会导致关联，condition on common cause 后切断关联</li>
+<li>common effect 无关联，condition on common effect 后恢复关联</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="causal-diagrams-and-conditional-independence" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="causal-diagrams-and-conditional-independence"><span class="header-section-number">6.3</span> Causal diagrams and conditional independence</h2>
+<p>重复上面的例子， 假设知道A和Y之间存在一个中间因素B（血小板聚集）</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-191081863.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>新问题：在conditon on B的条件下（B的不同层内）A和Y是否有关联？ 假设选择血小板聚集低的人群，此时我们可以确定其心血管疾病风险也低，和吃不吃阿司匹林无关了，</p>
+<p><span class="math display">\[
+Pr[Y=1/A=1,B=b] = Pr[Y=1/A=0,B=b] (无association)
+\]</span> 也就是说，即使A和Y有关联，在condition on B 后这种关联消失了。</p>
+<p>和上面讨论的类似，有下图：</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3270748474.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-357785228.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>进一步拓展：</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3596808739.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>此时的C是A和Y的common effect ,且被condition了，那么此时A和Y之间的关联存在</p>
+</section>
+<section id="positivity-and-consistency-in-causal-diagrams" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="positivity-and-consistency-in-causal-diagrams"><span class="header-section-number">6.4</span> Positivity and consistency in causal diagrams</h2>
+<p>正数性：在因果图中通常隐含</p>
+<p>一致性：确保处理到结果的干预明确且定义良好，嵌入在因果图的符号表示中。</p>
+<p>明确感兴趣的干预方式对于定义良好的因果效应至关重要。 不同的干预方式可能导致不同的因果效应，使得因果效应的定义变得模糊。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1821108325.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="a-structural-classification-of-bias" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="a-structural-classification-of-bias"><span class="header-section-number">6.5</span> A structural classification of bias</h2>
+<p>common cause :存在时，关联不等于因果，也称为混杂 common effect:被condition on 时，关联不等于因果，也称为选择偏移</p>
+</section>
+<section id="the-structure-of-effect-modification" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="the-structure-of-effect-modification"><span class="header-section-number">6.6</span> The structure of effect modification</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3380570101.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>V是效应修饰因子，由于A是随机分配的所以V没有箭头指向A</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2186019405.png" class="img-fluid figure-img"></p>
+<figcaption><img src="images/clipboard-629680314.png" class="img-fluid figure-img"></figcaption>
+</figure>
+</div>
+<p><img src="images/clipboard-3396573334.png" class="img-fluid"></p>
+<p>这里的U也可以作为效应修饰因子的代理变量</p>
+<p><img src="images/clipboard-4179697386.png" class="img-fluid"></p>
+<p>同理 W也可以</p>
 
 
 </section>
@@ -755,13 +891,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./Observation Study.html" class="pagination-link" aria-label="Observation Study">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Observation Study</span></span>
+      <a href="./Interaction.html" class="pagination-link" aria-label="Interaction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interaction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Interaction.html" class="pagination-link" aria-label="Interaction">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interaction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Confounding.html" class="pagination-link" aria-label="Confounding">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Confounding</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

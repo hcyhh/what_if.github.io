@@ -1,0 +1,141 @@
+# Graphical representation of causal effects
+
+::: callout-note
+## 前言： 为什么要用图形来表示因果效应 ？
+
+-   因果效应的图形化表达，有助于理清因果概念便于沟通。
+-   图形化表达遵循了先做出假设，再得出结论的理念。
+:::
+
+## Causal diagrams
+
+![](images/clipboard-3062177108.png){fig-align="center"}
+
+**图中总结的要点如下：**
+
+-   3个nodes代表L,A,Y,分别为疾病严重程度，心脏移植，死亡
+-   3个edges（箭头线）表示这因果效应的指向
+-   这种图称为directed acyclic graphs;DAGs
+-   Directed：L -\> A -\> Y表示方向; acyclic:无环，一个变量无法是自己的原因
+-   图6.1是观察性研究，病情严重程度是心脏移植和死亡的common cause
+-   图6.2是随机试验，L在不同组随机分配，不再是A和Y的common cause
+
+## Causal diagrams and marginal independence
+
+**例子1：**
+
+![](images/clipboard-2824199779.png){fig-align="center"}
+
+-   A表示服用阿司匹林；Y表示心血管疾病
+
+可看作一个RCT，可以知道服用阿司匹林和心血管疾病之间有因果效应，同样的两者之间也存在关联（无方向），即：
+
+$$
+Pr[Y^{a=1}=1] ≠ Pr[Y^{a=0}=1] (有causation)
+$$
+
+$$
+Pr[Y=1/A=1] ≠ Pr[Y=1/A=0] (有association)
+$$
+
+**例子2：**
+
+![](images/clipboard-890249566.png){fig-align="center"}
+
+-   A表示带打火机；Y表示肺癌；L表示抽烟
+
+带打火机和肺癌之间没有**因果**效应，故图中没有箭头。
+
+看作一个观察性研究，我们已知带打火机和肺癌没有因果效应，那么带打火机和肺癌存在关联吗？ 抽烟的人会带打火机,抽烟也会导致更大的肺癌风险，表现在图6.3中即A和Y之间通过一个commnon cause - **L** 建立起了关联，association存在
+
+类比上面即：
+
+$$
+Pr[Y^{a=1}=1] = Pr[Y^{a=0}=1] (无causation)
+$$
+
+$$
+Pr[Y=1/A=1] ≠ Pr[Y=1/A=0] (有association) 
+$$
+
+如果现在condition on是否抽烟的条件下，比如已知这个人不抽烟，那么知道他带打火机并不能知道他是否患肺癌，关联被切断了。
+
+**例子3：**
+
+![](images/clipboard-2982990840.png){fig-align="center"}
+
+-   A表示拍马屁；Y表示个人能力；L表示升职
+
+此时的L是A和Y的common **effect**,称为collider（因为两个箭头都指向它） 考虑拍马屁和个人能力之间存在关联吗？ 拍马屁会导致升职，个人能力也导致升职，拍马屁和个人能力是相互独立的。即不存在关联。
+
+$$
+Pr[Y^{a=1}=1] = Pr[Y^{a=0}=1] (无causation)
+$$
+
+$$
+Pr[Y=1/A=1] = Pr[Y=1/A=0] (无association) 
+$$
+
+只有在condition on 是否升职的条件下，关联才会重新被建立，比如已知这个人升职了，我知道他个人能力不强那么大概率他会拍马屁，关联重新被建立。
+
+::: callout-note
+## Summary
+
+1.  单箭头的因果效应存在双向的关联
+2.  common cause 会导致关联，condition on common cause 后切断关联
+3.  common effect 无关联，condition on common effect 后恢复关联
+:::
+
+## Causal diagrams and conditional independence
+
+重复上面的例子， 假设知道A和Y之间存在一个中间因素B（血小板聚集）
+
+![](images/clipboard-191081863.png){fig-align="center"}
+
+新问题：在conditon on B的条件下（B的不同层内）A和Y是否有关联？ 假设选择血小板聚集低的人群，此时我们可以确定其心血管疾病风险也低，和吃不吃阿司匹林无关了，
+
+$$
+Pr[Y=1/A=1,B=b] = Pr[Y=1/A=0,B=b] (无association) 
+$$ 也就是说，即使A和Y有关联，在condition on B 后这种关联消失了。
+
+和上面讨论的类似，有下图：
+
+![](images/clipboard-3270748474.png){fig-align="center"}
+
+![](images/clipboard-357785228.png){fig-align="center"}
+
+进一步拓展：
+
+![](images/clipboard-3596808739.png){fig-align="center"}
+
+此时的C是A和Y的common effect ,且被condition了，那么此时A和Y之间的关联存在
+
+## Positivity and consistency in causal diagrams
+
+正数性：在因果图中通常隐含
+
+一致性：确保处理到结果的干预明确且定义良好，嵌入在因果图的符号表示中。
+
+明确感兴趣的干预方式对于定义良好的因果效应至关重要。 不同的干预方式可能导致不同的因果效应，使得因果效应的定义变得模糊。
+
+![](images/clipboard-1821108325.png){fig-align="center"}
+
+## A structural classification of bias
+
+common cause :存在时，关联不等于因果，也称为混杂 common effect:被condition on 时，关联不等于因果，也称为选择偏移
+
+## The structure of effect modification
+
+![](images/clipboard-3380570101.png){fig-align="center"}
+
+V是效应修饰因子，由于A是随机分配的所以V没有箭头指向A
+
+![![](images/clipboard-629680314.png)](images/clipboard-2186019405.png)
+
+![](images/clipboard-3396573334.png)
+
+这里的U也可以作为效应修饰因子的代理变量
+
+![](images/clipboard-4179697386.png)
+
+同理 W也可以
