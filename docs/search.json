@@ -380,7 +380,7 @@
     "href": "Interaction.html",
     "title": "5  Interaction",
     "section": "",
-    "text": "5.1 Interaction requires a joint intervention",
+    "text": "5.1 Interaction requires a joint intervention\n交互定义：\n交互和效应修饰的区别",
     "crumbs": [
       "Home",
       "I Causal inference without models",
@@ -392,7 +392,7 @@
     "href": "Interaction.html#identifying-interaction",
     "title": "5  Interaction",
     "section": "5.2 Identifying interaction",
-    "text": "5.2 Identifying interaction",
+    "text": "5.2 Identifying interaction\n当干预E是随机分配的时候，交互定义和效应修饰一致",
     "crumbs": [
       "Home",
       "I Causal inference without models",
@@ -529,6 +529,18 @@
       "Home",
       "I Causal inference without models",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Graphical representation of causal effects</span>"
+    ]
+  },
+  {
+    "objectID": "Interaction.html#section",
+    "href": "Interaction.html#section",
+    "title": "5  Interaction",
+    "section": "5.3 ",
+    "text": "5.3",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Interaction</span>"
     ]
   }
 ]

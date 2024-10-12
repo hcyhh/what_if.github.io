@@ -2,12 +2,84 @@
 
 ## Interaction requires a joint intervention
 
+交互定义：
+
+![](images/clipboard-2596779798.png)
+
+交互和效应修饰的区别
+
+![](images/clipboard-2598387286.png)
+
+![](images/clipboard-928832633.png)
+
 ## Identifying interaction
+
+当干预E是随机分配的时候，交互定义和效应修饰一致
+
+![](images/clipboard-2021034076.png)
+
+![](images/clipboard-3787130674.png)
+
+![](images/clipboard-167238772.png)
+
+![](images/clipboard-1070769405.png)
+
+![](images/clipboard-3406420725.png)
+
+![](images/clipboard-3028563550.png)
+
+![](images/clipboard-1093362935.png)
 
 ## Counterfactual response types and interaction
 
+![](images/clipboard-3761863589.png)
+
+![](images/clipboard-4155984028.png)
+
+![](images/clipboard-1793623823.png)
+
+![](images/clipboard-1468222141.png)
+
+![](images/clipboard-2199347116.png)
+
+![](images/clipboard-2583219722.png)
+
+![](images/clipboard-2557913318.png)
+
+![](images/clipboard-867553880.png)
+
+![](images/clipboard-3221041102.png)
+
 ## Sufficient causes
+
+![](images/clipboard-357446178.png)
+
+![](images/clipboard-471056143.png)
+
+![](images/clipboard-3582339047.png)
+
+![](images/clipboard-1750932349.png)
 
 ## Sufficient cause interaction
 
+![](images/clipboard-834288578.png)
+
+![](images/clipboard-4232935919.png)
+
+![](images/clipboard-211869991.png)
+
+![](images/clipboard-1810507703.png)
+
+![](images/clipboard-4005735272.png)
+
+![](images/clipboard-2907337789.png)
+
+![](images/clipboard-1804210156.png)
+
 ## Counterfactuals or sufficient-component causes?
+
+![![](images/clipboard-84671545.png)](images/clipboard-2294946951.png)
+
+![](images/clipboard-4191262102.png)
+
+![](images/clipboard-1861940644.png)
