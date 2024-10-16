@@ -542,5 +542,17 @@
       "I Causal inference without models",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Interaction</span>"
     ]
+  },
+  {
+    "objectID": "Confounding.html",
+    "href": "Confounding.html",
+    "title": "7  Confounding",
+    "section": "",
+    "text": "7.1 The structure of confounding\n一句话，common cause 就是混杂",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Confounding</span>"
+    ]
   }
 ]

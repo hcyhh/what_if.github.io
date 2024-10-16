@@ -1,1 +1,11 @@
 # Confounding
+
+## The structure of confounding
+
+一句话，common cause 就是混杂
+
+![](images/clipboard-3565620640.png)
+
+![](images/clipboard-529591419.png){width="549"}
+
+![](images/clipboard-312472205.png)
