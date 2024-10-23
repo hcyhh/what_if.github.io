@@ -1,2 +1,51 @@
-
 # Why model
+
+## Data cannot speak for themselves
+
+![](images/clipboard-1882184516.png)
+
+## Parametric estimators of the conditional mean
+
+当分层过多时，某一个暴露下没有足够的值，或者直接就没有数值，此时就需要借助模型
+
+```{r}
+
+A3<-c(3,11,17,23,29,37,41,53,67,79,83,97,60,71,15,45)
+Y3<-c(21,54,33,101,85,65,157,120,111,200,140,220,230,217,11,190)
+
+plot(Y3~A3)
+abline(glm(Y3~A3), col = "blue", lwd = 2)
+glm(Y3~A3)
+predict(glm(Y3~A3), data.frame(A3=90))
+
+```
+
+## Nonparametric estimators of the conditional mean
+
+![](images/clipboard-1444979883.png)
+
+![](images/clipboard-2459163703.png)
+
+估计的条件均值的个数等于参数的个数就是饱和模型，估计的条件均值的个数大于参数的个数就是不饱和和模型
+
+后面的 估计都是二分类暴露 — 饱和模型 — 条件均值的非参数估计
+
+## Smoothing
+
+加高维项
+
+```{r}
+Asq<-A3*A3
+
+glm(Y3~A3+Asq)
+predict(glm(Y3~A3+Asq), data.frame(cbind(A3=90, Asq=8100)))
+
+```
+
+## The bias-variance trade-off
+
+不加二次项的模型 bias大但是variance小
+
+加二次项的模型bias小但是variance大（置信区间大）
+
+如何抉择根据实际情况判断，高次项的模型相比于一次项的模型，模型错误指定的可能更小

@@ -554,5 +554,77 @@
       "I Causal inference without models",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Confounding</span>"
     ]
+  },
+  {
+    "objectID": "Confounding.html#confounding-and-exchangeability",
+    "href": "Confounding.html#confounding-and-exchangeability",
+    "title": "7  Confounding",
+    "section": "7.2 Confounding and exchangeability",
+    "text": "7.2 Confounding and exchangeability",
+    "crumbs": [
+      "Home",
+      "I Causal inference without models",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Confounding</span>"
+    ]
+  },
+  {
+    "objectID": "Why model.html",
+    "href": "Why model.html",
+    "title": "11  Why model",
+    "section": "",
+    "text": "11.1 Data cannot speak for themselves",
+    "crumbs": [
+      "Home",
+      "II Causal inference with models",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Why model</span>"
+    ]
+  },
+  {
+    "objectID": "Why model.html#parametric-estimators-of-the-conditional-mean",
+    "href": "Why model.html#parametric-estimators-of-the-conditional-mean",
+    "title": "11  Why model",
+    "section": "11.2 Parametric estimators of the conditional mean",
+    "text": "11.2 Parametric estimators of the conditional mean\n当分层过多时，某一个暴露下没有足够的值，或者直接就没有数值，此时就需要借助模型\n\nA3&lt;-c(3,11,17,23,29,37,41,53,67,79,83,97,60,71,15,45)\nY3&lt;-c(21,54,33,101,85,65,157,120,111,200,140,220,230,217,11,190)\n\nplot(Y3~A3)\nabline(glm(Y3~A3), col = \"blue\", lwd = 2)\n\n\n\n\n\n\n\nglm(Y3~A3)\n\n\nCall:  glm(formula = Y3 ~ A3)\n\nCoefficients:\n(Intercept)           A3  \n     24.546        2.137  \n\nDegrees of Freedom: 15 Total (i.e. Null);  14 Residual\nNull Deviance:      82800 \nResidual Deviance: 27220    AIC: 170.4\n\npredict(glm(Y3~A3), data.frame(A3=90))\n\n     1 \n216.89",
+    "crumbs": [
+      "Home",
+      "II Causal inference with models",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Why model</span>"
+    ]
+  },
+  {
+    "objectID": "Why model.html#nonparametric-estimators-of-the-conditional-mean",
+    "href": "Why model.html#nonparametric-estimators-of-the-conditional-mean",
+    "title": "11  Why model",
+    "section": "11.3 Nonparametric estimators of the conditional mean",
+    "text": "11.3 Nonparametric estimators of the conditional mean\n\n\n估计的条件均值的个数等于参数的个数就是饱和模型，估计的条件均值的个数大于参数的个数就是不饱和和模型\n后面的 估计都是二分类暴露 — 饱和模型 — 条件均值的非参数估计",
+    "crumbs": [
+      "Home",
+      "II Causal inference with models",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Why model</span>"
+    ]
+  },
+  {
+    "objectID": "Why model.html#smoothing",
+    "href": "Why model.html#smoothing",
+    "title": "11  Why model",
+    "section": "11.4 Smoothing",
+    "text": "11.4 Smoothing\n加高维项\n\nAsq&lt;-A3*A3\n\nglm(Y3~A3+Asq)\n\n\nCall:  glm(formula = Y3 ~ A3 + Asq)\n\nCoefficients:\n(Intercept)           A3          Asq  \n   -7.40688      4.10723     -0.02038  \n\nDegrees of Freedom: 15 Total (i.e. Null);  13 Residual\nNull Deviance:      82800 \nResidual Deviance: 23960    AIC: 170.4\n\npredict(glm(Y3~A3+Asq), data.frame(cbind(A3=90, Asq=8100)))\n\n       1 \n197.1269",
+    "crumbs": [
+      "Home",
+      "II Causal inference with models",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Why model</span>"
+    ]
+  },
+  {
+    "objectID": "Why model.html#the-bias-variance-trade-off",
+    "href": "Why model.html#the-bias-variance-trade-off",
+    "title": "11  Why model",
+    "section": "11.5 The bias-variance trade-off",
+    "text": "11.5 The bias-variance trade-off\n不加二次项的模型 bias大但是variance小\n加二次项的模型bias小但是variance大（置信区间大）\n如何抉择根据实际情况判断，高次项的模型相比于一次项的模型，模型错误指定的可能更小",
+    "crumbs": [
+      "Home",
+      "II Causal inference with models",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Why model</span>"
+    ]
   }
 ]

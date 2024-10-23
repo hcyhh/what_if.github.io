@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>what_if - 3&nbsp; Why model</title>
+<title>what if - 11&nbsp; Why model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -41,11 +75,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -71,16 +105,40 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">what if</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+    <a href="https://github.com/hcyhh/what_if" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Why model.html">II Causal inference with models</a></li><li class="breadcrumb-item"><a href="./Why model.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Why model</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Why model.html">II Causal inference with models</a></li><li class="breadcrumb-item"><a href="./Why model.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Why model</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -90,20 +148,13 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./images/dragon.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">what_if</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://twitter.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
-    <a href="https://youtube.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
-</div>
-    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -136,8 +187,56 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./Randomized experiments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Randomized experiments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Observation Study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Observation Study</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Effect Modification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Effect Modificaion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Interaction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interaction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Graphical representation of causal effects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Graphical representation of causal effects</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Confounding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Confounding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Selection bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Selection bias</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Measurement bias and “Noncausal” diagrams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Measurement bias and “Noncausal” diagrams</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Random variability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Random variability</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -160,7 +259,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Why model.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Why model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Why model</span></span></a>
   </div>
 </li>
       </ul>
@@ -176,14 +275,24 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#data-cannot-speak-for-themselves" id="toc-data-cannot-speak-for-themselves" class="nav-link active" data-scroll-target="#data-cannot-speak-for-themselves"><span class="header-section-number">11.1</span> Data cannot speak for themselves</a></li>
+  <li><a href="#parametric-estimators-of-the-conditional-mean" id="toc-parametric-estimators-of-the-conditional-mean" class="nav-link" data-scroll-target="#parametric-estimators-of-the-conditional-mean"><span class="header-section-number">11.2</span> Parametric estimators of the conditional mean</a></li>
+  <li><a href="#nonparametric-estimators-of-the-conditional-mean" id="toc-nonparametric-estimators-of-the-conditional-mean" class="nav-link" data-scroll-target="#nonparametric-estimators-of-the-conditional-mean"><span class="header-section-number">11.3</span> Nonparametric estimators of the conditional mean</a></li>
+  <li><a href="#smoothing" id="toc-smoothing" class="nav-link" data-scroll-target="#smoothing"><span class="header-section-number">11.4</span> Smoothing</a></li>
+  <li><a href="#the-bias-variance-trade-off" id="toc-the-bias-variance-trade-off" class="nav-link" data-scroll-target="#the-bias-variance-trade-off"><span class="header-section-number">11.5</span> The bias-variance trade-off</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Why model.html">II Causal inference with models</a></li><li class="breadcrumb-item"><a href="./Why model.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Why model</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Why model.html">II Causal inference with models</a></li><li class="breadcrumb-item"><a href="./Why model.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Why model</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Why model</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Why model</span></h1>
 </div>
 
 
@@ -200,8 +309,87 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="data-cannot-speak-for-themselves" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="data-cannot-speak-for-themselves"><span class="header-section-number">11.1</span> Data cannot speak for themselves</h2>
+<p><img src="images/clipboard-1882184516.png" class="img-fluid"></p>
+</section>
+<section id="parametric-estimators-of-the-conditional-mean" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="parametric-estimators-of-the-conditional-mean"><span class="header-section-number">11.2</span> Parametric estimators of the conditional mean</h2>
+<p>当分层过多时，某一个暴露下没有足够的值，或者直接就没有数值，此时就需要借助模型</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>A3<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">11</span>,<span class="dv">17</span>,<span class="dv">23</span>,<span class="dv">29</span>,<span class="dv">37</span>,<span class="dv">41</span>,<span class="dv">53</span>,<span class="dv">67</span>,<span class="dv">79</span>,<span class="dv">83</span>,<span class="dv">97</span>,<span class="dv">60</span>,<span class="dv">71</span>,<span class="dv">15</span>,<span class="dv">45</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Y3<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">21</span>,<span class="dv">54</span>,<span class="dv">33</span>,<span class="dv">101</span>,<span class="dv">85</span>,<span class="dv">65</span>,<span class="dv">157</span>,<span class="dv">120</span>,<span class="dv">111</span>,<span class="dv">200</span>,<span class="dv">140</span>,<span class="dv">220</span>,<span class="dv">230</span>,<span class="dv">217</span>,<span class="dv">11</span>,<span class="dv">190</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y3<span class="sc">~</span>A3)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">glm</span>(Y3<span class="sc">~</span>A3), <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Why-model_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(Y3<span class="sc">~</span>A3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:  glm(formula = Y3 ~ A3)
+
+Coefficients:
+(Intercept)           A3  
+     24.546        2.137  
+
+Degrees of Freedom: 15 Total (i.e. Null);  14 Residual
+Null Deviance:      82800 
+Residual Deviance: 27220    AIC: 170.4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(<span class="fu">glm</span>(Y3<span class="sc">~</span>A3), <span class="fu">data.frame</span>(<span class="at">A3=</span><span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     1 
+216.89 </code></pre>
+</div>
+</div>
+</section>
+<section id="nonparametric-estimators-of-the-conditional-mean" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="nonparametric-estimators-of-the-conditional-mean"><span class="header-section-number">11.3</span> Nonparametric estimators of the conditional mean</h2>
+<p><img src="images/clipboard-1444979883.png" class="img-fluid"></p>
+<p><img src="images/clipboard-2459163703.png" class="img-fluid"></p>
+<p>估计的条件均值的个数等于参数的个数就是饱和模型，估计的条件均值的个数大于参数的个数就是不饱和和模型</p>
+<p>后面的 估计都是二分类暴露 — 饱和模型 — 条件均值的非参数估计</p>
+</section>
+<section id="smoothing" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="smoothing"><span class="header-section-number">11.4</span> Smoothing</h2>
+<p>加高维项</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Asq<span class="ot">&lt;-</span>A3<span class="sc">*</span>A3</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(Y3<span class="sc">~</span>A3<span class="sc">+</span>Asq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:  glm(formula = Y3 ~ A3 + Asq)
+
+Coefficients:
+(Intercept)           A3          Asq  
+   -7.40688      4.10723     -0.02038  
+
+Degrees of Freedom: 15 Total (i.e. Null);  13 Residual
+Null Deviance:      82800 
+Residual Deviance: 23960    AIC: 170.4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(<span class="fu">glm</span>(Y3<span class="sc">~</span>A3<span class="sc">+</span>Asq), <span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="at">A3=</span><span class="dv">90</span>, <span class="at">Asq=</span><span class="dv">8100</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1 
+197.1269 </code></pre>
+</div>
+</div>
+</section>
+<section id="the-bias-variance-trade-off" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="the-bias-variance-trade-off"><span class="header-section-number">11.5</span> The bias-variance trade-off</h2>
+<p>不加二次项的模型 bias大但是variance小</p>
+<p>加二次项的模型bias小但是variance大（置信区间大）</p>
+<p>如何抉择根据实际情况判断，高次项的模型相比于一次项的模型，模型错误指定的可能更小</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
