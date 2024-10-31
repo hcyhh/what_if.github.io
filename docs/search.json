@@ -1,45 +1,98 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "what if",
+    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html",
+    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html",
+    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
     "section": "",
-    "text": "Preface",
+    "text": "12.1 The causal question\n研究戒烟对体重的影响？\n单纯的用\\(E[Y|A=1]-E[Y|A=0]\\)并不能代表因果效应，因为可能存在混杂变量（年龄、性别等）",
     "crumbs": [
       "Home",
-      "Preface"
+      "II Causal inference with models",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
     ]
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#estimating-ip-weights-via-modeling",
+    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#estimating-ip-weights-via-modeling",
+    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
+    "section": "12.2 Estimating IP weights via modeling",
+    "text": "12.2 Estimating IP weights via modeling\nthe pseudo-population is created by weighting each individual by the inverse (reciprocal) of the conditional probability of receiving the treatment level that she indeed received\n\\[W^A = 1/f (A|L)\\]\n在第二章的逆概率加权的简单介绍中，混杂只有一个变量，可以按照分层分别计算逆概率权重， 但是现在数据中有多个变量，多维度数据，还按照以前的方法就会分出2的n次方的层，引起维度灾难， 所以我们需要求助于建模\n思路就是对暴露建模\\(E[A|L]\\),从而获得\\(Pr[A|L]\\). 然后建模\\(E[Y|A]\\),并赋予权重，即可估计因果效应\n得出点估计后，IP-weighting 的95% CI 的计算有三种方法：",
     "crumbs": [
       "Home",
-      "I Causal inference without models",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+      "II Causal inference with models",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
     ]
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#stabilized-ip-weights",
+    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#stabilized-ip-weights",
+    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
+    "section": "12.3 Stabilized IP weights",
+    "text": "12.3 Stabilized IP weights",
     "crumbs": [
-      "References"
+      "Home",
+      "II Causal inference with models",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
+    ]
+  },
+  {
+    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#marginal-structural-models",
+    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#marginal-structural-models",
+    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
+    "section": "12.4 Marginal structural models",
+    "text": "12.4 Marginal structural models",
+    "crumbs": [
+      "Home",
+      "II Causal inference with models",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
+    ]
+  },
+  {
+    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#effect-modification-and-marginal-structural-models",
+    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#effect-modification-and-marginal-structural-models",
+    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
+    "section": "12.5 Effect modification and marginal structural models",
+    "text": "12.5 Effect modification and marginal structural models",
+    "crumbs": [
+      "Home",
+      "II Causal inference with models",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
+    ]
+  },
+  {
+    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#censoring-and-missing-data",
+    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#censoring-and-missing-data",
+    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
+    "section": "12.6 Censoring and missing data",
+    "text": "12.6 Censoring and missing data\n有删失数据存在的时候，只分析已有数据会引入选择偏倚 解决办法：",
+    "crumbs": [
+      "Home",
+      "II Causal inference with models",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
+    ]
+  },
+  {
+    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#code",
+    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#code",
+    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
+    "section": "12.7 Code",
+    "text": "12.7 Code\n\n# 因果推断\n# 基于模型的标准化和IPW方法\n# data ####\ndat &lt;- data.frame(ID = 1:10,\n                  A  = c(0,0,1,0,1,1,0,1,0,1),\n                  Y  = c(3,-10,47,7,4,10,23,8,0,10),\n                  L  = c(36,42,42,47,47,47,48,48,51,56))\n\ndat1 &lt;- dat0 &lt;- dat\ndat1$A &lt;- 1\ndat0$A &lt;- 0\n\n# Standardization (分组建模) ####\noutcome.fit0 &lt;- lm(Y ~ L, data = dat[dat$A==0,])\ncoef(outcome.fit0)\n\n(Intercept)           L \n-24.6426513   0.6527378 \n\nY0 &lt;- predict(object = outcome.fit0, newdata = dat0)\nEY0 &lt;- mean(Y0) ; EY0\n\n[1] 5.64438\n\noutcome.fit1 &lt;- lm(Y ~ L, data = dat[dat$A==1,])\ncoef(outcome.fit1)\n\n(Intercept)           L \n 117.447059   -2.117647 \n\nY1 &lt;- predict(object = outcome.fit1, newdata = dat1)\nEY1 &lt;- mean(Y1) ; EY1\n\n[1] 19.18824\n\nEY1-EY0 # 13.54385\n\n[1] 13.54385\n\n# Standardization (汇总建模) ####\noutcome.fit &lt;- lm(Y ~ A + L, data = dat)\ncoef(outcome.fit)\n\n(Intercept)           A           L \n 27.9302326  12.8664452  -0.5207641 \n\nY0 &lt;- predict(object = outcome.fit, newdata = dat0)\nY1 &lt;- predict(object = outcome.fit, newdata = dat1)\n\nEY0 &lt;- mean(Y0) ; EY0\n\n[1] 3.766777\n\nEY1 &lt;- mean(Y1) ; EY1\n\n[1] 16.63322\n\nEY1-EY0 # 12.86645\n\n[1] 12.86645\n\n# Inverse Probability Weighting ####\nexposure.fit &lt;- glm(A ~ L, family = binomial(), data = dat)\ncoef(exposure.fit)\n\n(Intercept)           L \n -6.2154811   0.1338375 \n\nsummary(exposure.fit)\n\n\nCall:\nglm(formula = A ~ L, family = binomial(), data = dat)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)\n(Intercept)  -6.2155     6.7401  -0.922    0.356\nL             0.1338     0.1442   0.928    0.353\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 13.863  on 9  degrees of freedom\nResidual deviance: 12.850  on 8  degrees of freedom\nAIC: 16.85\n\nNumber of Fisher Scoring iterations: 4\n\nPA1 &lt;- predict.glm(object = exposure.fit, type = \"response\")\nPA0 &lt;- 1 - PA1\n\n\n\nEY1 &lt;- with(dat, mean(A*Y/PA1))\nEY0 &lt;- with(dat, mean((1-A)*Y/PA0))\n\nEY1-EY0 # 13.23132\n\n[1] 13.23132\n\n# 另一种逆概率加权写法（边际结构模型）\ne &lt;- fitted(glm(A ~ L, family = binomial(), data = dat))\ndat$W &lt;- (1 / e) * dat$A + (1 / (1 - e)) * (1 - dat$A)\nbeta &lt;- glm(Y ~ A, data = dat, weights = W)$coef\nEY0 &lt;- beta[1] \nEY1 &lt;- beta[1] + beta[2]\nEY1 - EY0\n\n(Intercept) \n   13.66779 \n\n# 逆概率加权再来一种写法\nW &lt;- ifelse(dat$A == 1,1/PA1,1/PA0)\nModel &lt;- lm(Y~A ,weights = W,dat)\nsummary(Model) # 11.1517\n\n\nCall:\nlm(formula = Y ~ A, data = dat, weights = W)\n\nWeighted Residuals:\n    Min      1Q  Median      3Q     Max \n-20.974 -14.371  -9.730   1.008  46.774 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)\n(Intercept)    5.438      7.326   0.742    0.479\nA             13.668     10.411   1.313    0.226\n\nResidual standard error: 23.11 on 8 degrees of freedom\nMultiple R-squared:  0.1772,    Adjusted R-squared:  0.0744 \nF-statistic: 1.723 on 1 and 8 DF,  p-value: 0.2257\n\n# Doubly Robust approach ####\noutcome.fit &lt;- lm(Y ~ A + L , data = dat)\nY0 &lt;- predict(object = outcome.fit, newdata = dat0)\nY1 &lt;- predict(object = outcome.fit, newdata = dat1)\n\nEY0 &lt;- mean(Y0) ; EY0\n\n[1] 3.766777\n\nEY1 &lt;- mean(Y1) ; EY1\n\n[1] 16.63322\n\nexposure.fit &lt;- glm(A ~ L, family = binomial(), data = dat)\nPA1 &lt;- predict.glm(object = exposure.fit, type = \"response\")\nPA0 &lt;- 1 - PA1\n\nDR &lt;- function(A, Y, P, EY) {\n  mean(A*Y/P - (A-P)*EY/P)\n}\n\nEY1.DR &lt;- DR(A = dat$A, Y = dat$Y, P = PA1, EY = EY1)\nEY0.DR &lt;- DR(A = 1-dat$A, Y = dat$Y, P = PA0, EY = EY0)\n\nEY1.DR-EY0.DR # 13.60072\n\n[1] 13.61615",
+    "crumbs": [
+      "Home",
+      "II Causal inference with models",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
+    ]
+  },
+  {
+    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#what-if-书代码",
+    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#what-if-书代码",
+    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
+    "section": "12.8 what if 书代码",
+    "text": "12.8 what if 书代码\nhttps://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/",
+    "crumbs": [
+      "Home",
+      "II Causal inference with models",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
     ]
   },
   {
@@ -55,36 +108,15 @@
     ]
   },
   {
-    "objectID": "index.html#r学习资源推荐",
-    "href": "index.html#r学习资源推荐",
-    "title": "R语言学习笔记：从数据清洗到高级统计学和生物信息学",
+    "objectID": "A definition of causal effect.html#individal-causal-effects",
+    "href": "A definition of causal effect.html#individal-causal-effects",
+    "title": "1  A definition of causal effect",
     "section": "",
-    "text": "在线书籍：\n\nR Graphics Cookbook, 2nd edition：https://r-graphics.org\nR for Data Science (2e)：https://r4ds.hadley.nz\nQuarto Guide：https://quarto.org/docs/guide/\nHappy Git and GitHub for the useR：https://happygitwithr.com\nBookdown：https://bookdown.org\n\n\n\n论坛/网站：\n\n交互式R语言学习网站：https://www.codecademy.com/learn/learn-r\nR CODER：https://r-coder.com\nStack Overflow：https://stackoverflow.com\nR-Bloggers：https://www.r-bloggers.com\nPosit Cheatsheets：https://posit.co/resources/cheatsheets/\nKaggle：https://www.kaggle.com/code?language=R\nThe R Graph Gallery：https://r-graph-gallery.com\nPosit Community：https://community.rstudio.com",
+    "text": "为什么无法识别个体因果效应\n\n\n\nIndividual causal effects are defined as a contrast of the values of counterfactual outcomes, but only one of those outcomes is observed for each individualthe one corresponding to the treatment value actually experienced by the individual. All other counterfactual outcomes remain unobserved. Because of missing data, individual effects cannot be identified, i.e., they cannot be expressed as a function of the observed data (See Fine Point 2.1 for a possible exception.)\n\n\n\n\n\n\n\n\nFine Point 1.1\n\n\n\nno interaction between units或者 stable-unit-treatment-value assumption (SUTVA)\n隐含的条件是，每个个体接受治疗后的效应，不会因为其他个体是否接受治疗而改变",
     "crumbs": [
       "Home",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>R语言学习笔记：从数据清洗到高级统计学和生物信息学</span>"
-    ]
-  },
-  {
-    "objectID": "index.html#另外ps我超爱大花",
-    "href": "index.html#另外ps我超爱大花",
-    "title": "what if",
-    "section": "另外PS：我超爱大花",
-    "text": "另外PS：我超爱大花\n这一份读书笔记，想系统性的认真学习因果推断，参考书籍《what if》:\nhttps://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/\n链接中包含可运行代码，便于练习，每周上完课程后将自己所学进行总结，\n进一步复习和完成代码练习，再将学习总结资料搬运到各个平台。",
-    "crumbs": [
-      "Home",
-      "Preface"
-    ]
-  },
-  {
-    "objectID": "index.html#ps大花大花",
-    "href": "index.html#ps大花大花",
-    "title": "what if",
-    "section": "PS：大花大花！",
-    "text": "PS：大花大花！\n这一份读书笔记，想系统性的认真学习因果推断，参考书籍《what if》:\nhttps://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/\n链接中包含可运行代码，便于练习，每周上完课程后将自己所学进行总结，\n进一步复习和完成代码练习，再将学习总结资料搬运到各个平台。",
-    "crumbs": [
-      "Home",
-      "Preface"
+      "I Causal inference without models",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>A definition of causal effect</span>"
     ]
   },
   {
@@ -93,18 +125,6 @@
     "title": "1  A definition of causal effect",
     "section": "1.2 Average causal effect",
     "text": "1.2 Average causal effect\n正式的人群平均因果效应的定义：\n\n\n\n\n\n\n\n群体的平均因果效应不存在不代表个体的因果效应不存在\n\n\n\n每个个体间的因果效应虽然不同，但是每个个体的因果效应的均值可能刚好相互抵消 ，这个时候群体因果效应就是0了，如果每个个体都不存在因果效应，群体也没有因果效应，这种情况，称之为the sharp causal null hypothesis 得到满足\n\n\n\n\n\n\n\n\nFine Point 1.2\n\n\n\nMultiple versions of treatment 假设干预都是一模一样的，可以称为 treatment variation irrelevance",
-    "crumbs": [
-      "Home",
-      "I Causal inference without models",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>A definition of causal effect</span>"
-    ]
-  },
-  {
-    "objectID": "A definition of causal effect.html#individal-causal-effects",
-    "href": "A definition of causal effect.html#individal-causal-effects",
-    "title": "1  A definition of causal effect",
-    "section": "",
-    "text": "为什么无法识别个体因果效应\n\n\n\nIndividual causal effects are defined as a contrast of the values of counterfactual outcomes, but only one of those outcomes is observed for each individualthe one corresponding to the treatment value actually experienced by the individual. All other counterfactual outcomes remain unobserved. Because of missing data, individual effects cannot be identified, i.e., they cannot be expressed as a function of the observed data (See Fine Point 2.1 for a possible exception.)\n\n\n\n\n\n\n\n\nFine Point 1.1\n\n\n\nno interaction between units或者 stable-unit-treatment-value assumption (SUTVA)\n隐含的条件是，每个个体接受治疗后的效应，不会因为其他个体是否接受治疗而改变",
     "crumbs": [
       "Home",
       "I Causal inference without models",
@@ -297,18 +317,6 @@
     "title": "4  Effect Modificaion",
     "section": "",
     "text": "4.1 Heterogeneity of treatment effects\n效应修饰定义：\n效应修饰的判断会因为判断的尺度不同而不同\n在结果展示时，推荐两种尺度都展示",
-    "crumbs": [
-      "Home",
-      "I Causal inference without models",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Effect Modificaion</span>"
-    ]
-  },
-  {
-    "objectID": "Effect Modification.html#heterogeneity-of-treatment-effects",
-    "href": "Effect Modification.html#heterogeneity-of-treatment-effects",
-    "title": "4  Effect Modificaion",
-    "section": "",
-    "text": "效应修饰的判断会因为判断的尺度不同而不同",
     "crumbs": [
       "Home",
       "I Causal inference without models",
@@ -532,18 +540,6 @@
     ]
   },
   {
-    "objectID": "Interaction.html#section",
-    "href": "Interaction.html#section",
-    "title": "5  Interaction",
-    "section": "5.3 ",
-    "text": "5.3",
-    "crumbs": [
-      "Home",
-      "I Causal inference without models",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Interaction</span>"
-    ]
-  },
-  {
     "objectID": "Confounding.html",
     "href": "Confounding.html",
     "title": "7  Confounding",
@@ -625,102 +621,6 @@
       "Home",
       "II Causal inference with models",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Why model</span>"
-    ]
-  },
-  {
-    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html",
-    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html",
-    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
-    "section": "",
-    "text": "12.1 The causal question\n研究戒烟对体重的影响？\n单纯的用\\(E[Y|A=1]-E[Y|A=0]\\)并不能代表因果效应，因为可能存在混杂变量（年龄、性别等）",
-    "crumbs": [
-      "Home",
-      "II Causal inference with models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
-    ]
-  },
-  {
-    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#estimating-ip-weights-via-modeling",
-    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#estimating-ip-weights-via-modeling",
-    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
-    "section": "12.2 Estimating IP weights via modeling",
-    "text": "12.2 Estimating IP weights via modeling\nthe pseudo-population is created by weighting each individual by the inverse (reciprocal) of the conditional probability of receiving the treatment level that she indeed received\n\\[W^A = 1/f (A|L)\\]\n在第二章的逆概率加权的简单介绍中，混杂只有一个变量，可以按照分层分别计算逆概率权重， 但是现在数据中有多个变量，多维度数据，还按照以前的方法就会分出2的n次方的层，引起维度灾难， 所以我们需要求助于建模\n思路就是对暴露建模\\(E[A|L]\\),从而获得\\(Pr[A|L]\\). 然后建模\\(E[Y|A]\\),并赋予权重，即可估计因果效应\n得出点估计后，IP-weighting 的95% CI 的计算有三种方法：",
-    "crumbs": [
-      "Home",
-      "II Causal inference with models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
-    ]
-  },
-  {
-    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#stabilized-ip-weights",
-    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#stabilized-ip-weights",
-    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
-    "section": "12.3 Stabilized IP weights",
-    "text": "12.3 Stabilized IP weights",
-    "crumbs": [
-      "Home",
-      "II Causal inference with models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
-    ]
-  },
-  {
-    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#marginal-structural-models",
-    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#marginal-structural-models",
-    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
-    "section": "12.4 Marginal structural models",
-    "text": "12.4 Marginal structural models",
-    "crumbs": [
-      "Home",
-      "II Causal inference with models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
-    ]
-  },
-  {
-    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#effect-modification-and-marginal-structural-models",
-    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#effect-modification-and-marginal-structural-models",
-    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
-    "section": "12.5 Effect modification and marginal structural models",
-    "text": "12.5 Effect modification and marginal structural models",
-    "crumbs": [
-      "Home",
-      "II Causal inference with models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
-    ]
-  },
-  {
-    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#censoring-and-missing-data",
-    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#censoring-and-missing-data",
-    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
-    "section": "12.6 Censoring and missing data",
-    "text": "12.6 Censoring and missing data\n有删失数据存在的时候，只分析已有数据会引入选择偏倚 解决办法：",
-    "crumbs": [
-      "Home",
-      "II Causal inference with models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
-    ]
-  },
-  {
-    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#code",
-    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#code",
-    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
-    "section": "12.7 Code",
-    "text": "12.7 Code\n\n# 因果推断\n# 基于模型的标准化和IPW方法\n# data ####\ndat &lt;- data.frame(ID = 1:10,\n                  A  = c(0,0,1,0,1,1,0,1,0,1),\n                  Y  = c(3,-10,47,7,4,10,23,8,0,10),\n                  L  = c(36,42,42,47,47,47,48,48,51,56))\n\ndat1 &lt;- dat0 &lt;- dat\ndat1$A &lt;- 1\ndat0$A &lt;- 0\n\n# Standardization (分组建模) ####\noutcome.fit0 &lt;- lm(Y ~ L, data = dat[dat$A==0,])\ncoef(outcome.fit0)\n\n(Intercept)           L \n-24.6426513   0.6527378 \n\nY0 &lt;- predict(object = outcome.fit0, newdata = dat0)\nEY0 &lt;- mean(Y0) ; EY0\n\n[1] 5.64438\n\noutcome.fit1 &lt;- lm(Y ~ L, data = dat[dat$A==1,])\ncoef(outcome.fit1)\n\n(Intercept)           L \n 117.447059   -2.117647 \n\nY1 &lt;- predict(object = outcome.fit1, newdata = dat1)\nEY1 &lt;- mean(Y1) ; EY1\n\n[1] 19.18824\n\nEY1-EY0 # 13.54385\n\n[1] 13.54385\n\n# Standardization (汇总建模) ####\noutcome.fit &lt;- lm(Y ~ A + L, data = dat)\ncoef(outcome.fit)\n\n(Intercept)           A           L \n 27.9302326  12.8664452  -0.5207641 \n\nY0 &lt;- predict(object = outcome.fit, newdata = dat0)\nY1 &lt;- predict(object = outcome.fit, newdata = dat1)\n\nEY0 &lt;- mean(Y0) ; EY0\n\n[1] 3.766777\n\nEY1 &lt;- mean(Y1) ; EY1\n\n[1] 16.63322\n\nEY1-EY0 # 12.86645\n\n[1] 12.86645\n\n# Inverse Probability Weighting ####\nexposure.fit &lt;- glm(A ~ L, family = binomial(), data = dat)\ncoef(exposure.fit)\n\n(Intercept)           L \n -6.2154811   0.1338375 \n\nsummary(exposure.fit)\n\n\nCall:\nglm(formula = A ~ L, family = binomial(), data = dat)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)\n(Intercept)  -6.2155     6.7401  -0.922    0.356\nL             0.1338     0.1442   0.928    0.353\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 13.863  on 9  degrees of freedom\nResidual deviance: 12.850  on 8  degrees of freedom\nAIC: 16.85\n\nNumber of Fisher Scoring iterations: 4\n\nPA1 &lt;- predict.glm(object = exposure.fit, type = \"response\")\nPA0 &lt;- 1 - PA1\n\n\n\nEY1 &lt;- with(dat, mean(A*Y/PA1))\nEY0 &lt;- with(dat, mean((1-A)*Y/PA0))\n\nEY1-EY0 # 13.23132\n\n[1] 13.23132\n\n# 另一种逆概率加权写法（边际结构模型）\ne &lt;- fitted(glm(A ~ L, family = binomial(), data = dat))\ndat$W &lt;- (1 / e) * dat$A + (1 / (1 - e)) * (1 - dat$A)\nbeta &lt;- glm(Y ~ A, data = dat, weights = W)$coef\nEY0 &lt;- beta[1] \nEY1 &lt;- beta[1] + beta[2]\nEY1 - EY0\n\n(Intercept) \n   13.66779 \n\n# 逆概率加权再来一种写法\nW &lt;- ifelse(dat$A == 1,1/PA1,1/PA0)\nModel &lt;- lm(Y~A ,weights = W,dat)\nsummary(Model) # 11.1517\n\n\nCall:\nlm(formula = Y ~ A, data = dat, weights = W)\n\nWeighted Residuals:\n    Min      1Q  Median      3Q     Max \n-20.974 -14.371  -9.730   1.008  46.774 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)\n(Intercept)    5.438      7.326   0.742    0.479\nA             13.668     10.411   1.313    0.226\n\nResidual standard error: 23.11 on 8 degrees of freedom\nMultiple R-squared:  0.1772,    Adjusted R-squared:  0.0744 \nF-statistic: 1.723 on 1 and 8 DF,  p-value: 0.2257\n\n# Doubly Robust approach ####\noutcome.fit &lt;- lm(Y ~ A + L , data = dat)\nY0 &lt;- predict(object = outcome.fit, newdata = dat0)\nY1 &lt;- predict(object = outcome.fit, newdata = dat1)\n\nEY0 &lt;- mean(Y0) ; EY0\n\n[1] 3.766777\n\nEY1 &lt;- mean(Y1) ; EY1\n\n[1] 16.63322\n\nexposure.fit &lt;- glm(A ~ L, family = binomial(), data = dat)\nPA1 &lt;- predict.glm(object = exposure.fit, type = \"response\")\nPA0 &lt;- 1 - PA1\n\nDR &lt;- function(A, Y, P, EY) {\n  mean(A*Y/P - (A-P)*EY/P)\n}\n\nEY1.DR &lt;- DR(A = dat$A, Y = dat$Y, P = PA1, EY = EY1)\nEY0.DR &lt;- DR(A = 1-dat$A, Y = dat$Y, P = PA0, EY = EY0)\n\nEY1.DR-EY0.DR # 13.60072\n\n[1] 13.61615",
-    "crumbs": [
-      "Home",
-      "II Causal inference with models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
-    ]
-  },
-  {
-    "objectID": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#what-if-书代码",
-    "href": "IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html#what-if-书代码",
-    "title": "12  IP WEIGHTING AND MARGINAL STRUCTURAL MODELS",
-    "section": "12.8 what if 书代码",
-    "text": "12.8 what if 书代码\nhttps://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/",
-    "crumbs": [
-      "Home",
-      "II Causal inference with models",
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span>"
     ]
   }
 ]
