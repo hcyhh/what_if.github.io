@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>what if - 11&nbsp; Why model</title>
+<title>what if - 12&nbsp; IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html" rel="next">
-<link href="./references.html" rel="prev">
+<link href="./Why model.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -103,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -139,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Why model.html">II Causal inference with models</a></li><li class="breadcrumb-item"><a href="./Why model.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Why model</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Why model.html">II Causal inference with models</a></li><li class="breadcrumb-item"><a href="./IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -259,13 +287,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Why model.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Why model.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Why model</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html" class="sidebar-item-text sidebar-link">
+  <a href="./IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span></span></a>
   </div>
 </li>
@@ -286,20 +314,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-cannot-speak-for-themselves" id="toc-data-cannot-speak-for-themselves" class="nav-link active" data-scroll-target="#data-cannot-speak-for-themselves"><span class="header-section-number">11.1</span> Data cannot speak for themselves</a></li>
-  <li><a href="#parametric-estimators-of-the-conditional-mean" id="toc-parametric-estimators-of-the-conditional-mean" class="nav-link" data-scroll-target="#parametric-estimators-of-the-conditional-mean"><span class="header-section-number">11.2</span> Parametric estimators of the conditional mean</a></li>
-  <li><a href="#nonparametric-estimators-of-the-conditional-mean" id="toc-nonparametric-estimators-of-the-conditional-mean" class="nav-link" data-scroll-target="#nonparametric-estimators-of-the-conditional-mean"><span class="header-section-number">11.3</span> Nonparametric estimators of the conditional mean</a></li>
-  <li><a href="#smoothing" id="toc-smoothing" class="nav-link" data-scroll-target="#smoothing"><span class="header-section-number">11.4</span> Smoothing</a></li>
-  <li><a href="#the-bias-variance-trade-off" id="toc-the-bias-variance-trade-off" class="nav-link" data-scroll-target="#the-bias-variance-trade-off"><span class="header-section-number">11.5</span> The bias-variance trade-off</a></li>
+  <li><a href="#the-causal-question" id="toc-the-causal-question" class="nav-link active" data-scroll-target="#the-causal-question"><span class="header-section-number">12.1</span> The causal question</a></li>
+  <li><a href="#estimating-ip-weights-via-modeling" id="toc-estimating-ip-weights-via-modeling" class="nav-link" data-scroll-target="#estimating-ip-weights-via-modeling"><span class="header-section-number">12.2</span> Estimating IP weights via modeling</a></li>
+  <li><a href="#stabilized-ip-weights" id="toc-stabilized-ip-weights" class="nav-link" data-scroll-target="#stabilized-ip-weights"><span class="header-section-number">12.3</span> Stabilized IP weights</a></li>
+  <li><a href="#marginal-structural-models" id="toc-marginal-structural-models" class="nav-link" data-scroll-target="#marginal-structural-models"><span class="header-section-number">12.4</span> Marginal structural models</a></li>
+  <li><a href="#effect-modification-and-marginal-structural-models" id="toc-effect-modification-and-marginal-structural-models" class="nav-link" data-scroll-target="#effect-modification-and-marginal-structural-models"><span class="header-section-number">12.5</span> Effect modification and marginal structural models</a></li>
+  <li><a href="#censoring-and-missing-data" id="toc-censoring-and-missing-data" class="nav-link" data-scroll-target="#censoring-and-missing-data"><span class="header-section-number">12.6</span> Censoring and missing data</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">12.7</span> Code</a></li>
+  <li><a href="#what-if-书代码" id="toc-what-if-书代码" class="nav-link" data-scroll-target="#what-if-书代码"><span class="header-section-number">12.8</span> what if 书代码</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Why model.html">II Causal inference with models</a></li><li class="breadcrumb-item"><a href="./Why model.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Why model</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Why model.html">II Causal inference with models</a></li><li class="breadcrumb-item"><a href="./IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Why model</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span></h1>
 </div>
 
 
@@ -316,84 +347,208 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="data-cannot-speak-for-themselves" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="data-cannot-speak-for-themselves"><span class="header-section-number">11.1</span> Data cannot speak for themselves</h2>
-<p><img src="images/clipboard-1882184516.png" class="img-fluid"></p>
+<section id="the-causal-question" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="the-causal-question"><span class="header-section-number">12.1</span> The causal question</h2>
+<p>研究戒烟对体重的影响？</p>
+<p>单纯的用<span class="math inline">\(E[Y|A=1]-E[Y|A=0]\)</span>并不能代表因果效应，因为可能存在混杂变量（年龄、性别等）</p>
 </section>
-<section id="parametric-estimators-of-the-conditional-mean" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="parametric-estimators-of-the-conditional-mean"><span class="header-section-number">11.2</span> Parametric estimators of the conditional mean</h2>
-<p>当分层过多时，某一个暴露下没有足够的值，或者直接就没有数值，此时就需要借助模型</p>
+<section id="estimating-ip-weights-via-modeling" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="estimating-ip-weights-via-modeling"><span class="header-section-number">12.2</span> Estimating IP weights via modeling</h2>
+<p>the pseudo-population is created by weighting each individual by the inverse (reciprocal) of the conditional probability of receiving the treatment level that she indeed received</p>
+<p><span class="math display">\[W^A = 1/f (A|L)\]</span></p>
+<p>在第二章的逆概率加权的简单介绍中，混杂只有一个变量，可以按照分层分别计算逆概率权重， 但是现在数据中有多个变量，多维度数据，还按照以前的方法就会分出2的n次方的层，引起维度灾难， 所以我们需要求助于建模</p>
+<p>思路就是对暴露建模<span class="math inline">\(E[A|L]\)</span>,从而获得<span class="math inline">\(Pr[A|L]\)</span>. 然后建模<span class="math inline">\(E[Y|A]\)</span>,并赋予权重，即可估计因果效应</p>
+<p>得出点估计后，IP-weighting 的95% CI 的计算有三种方法：</p>
+<p><img src="images/clipboard-3023317701.png" class="img-fluid"> <img src="images/clipboard-2601153603.png" class="img-fluid"></p>
+</section>
+<section id="stabilized-ip-weights" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="stabilized-ip-weights"><span class="header-section-number">12.3</span> Stabilized IP weights</h2>
+<p><img src="images/clipboard-4238995358.png" class="img-fluid"> <img src="images/clipboard-470043680.png" class="img-fluid"> <img src="images/clipboard-2091016271.png" class="img-fluid"> <img src="images/clipboard-3284356021.png" class="img-fluid"></p>
+</section>
+<section id="marginal-structural-models" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="marginal-structural-models"><span class="header-section-number">12.4</span> Marginal structural models</h2>
+<p><img src="images/clipboard-2409962606.png" class="img-fluid"></p>
+<p><img src="images/clipboard-3905519080.png" class="img-fluid"></p>
+<p><img src="images/clipboard-438456716.png" class="img-fluid"></p>
+</section>
+<section id="effect-modification-and-marginal-structural-models" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="effect-modification-and-marginal-structural-models"><span class="header-section-number">12.5</span> Effect modification and marginal structural models</h2>
+<p><img src="images/clipboard-3085090657.png" class="img-fluid"></p>
+<p><img src="images/clipboard-2135223791.png" class="img-fluid"></p>
+</section>
+<section id="censoring-and-missing-data" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="censoring-and-missing-data"><span class="header-section-number">12.6</span> Censoring and missing data</h2>
+<p>有删失数据存在的时候，只分析已有数据会引入选择偏倚 解决办法：</p>
+<p><img src="images/clipboard-703890167.png" class="img-fluid"></p>
+</section>
+<section id="code" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="code"><span class="header-section-number">12.7</span> Code</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>A3<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">11</span>,<span class="dv">17</span>,<span class="dv">23</span>,<span class="dv">29</span>,<span class="dv">37</span>,<span class="dv">41</span>,<span class="dv">53</span>,<span class="dv">67</span>,<span class="dv">79</span>,<span class="dv">83</span>,<span class="dv">97</span>,<span class="dv">60</span>,<span class="dv">71</span>,<span class="dv">15</span>,<span class="dv">45</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Y3<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">21</span>,<span class="dv">54</span>,<span class="dv">33</span>,<span class="dv">101</span>,<span class="dv">85</span>,<span class="dv">65</span>,<span class="dv">157</span>,<span class="dv">120</span>,<span class="dv">111</span>,<span class="dv">200</span>,<span class="dv">140</span>,<span class="dv">220</span>,<span class="dv">230</span>,<span class="dv">217</span>,<span class="dv">11</span>,<span class="dv">190</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y3<span class="sc">~</span>A3)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">glm</span>(Y3<span class="sc">~</span>A3), <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Why-model_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 因果推断</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 基于模型的标准化和IPW方法</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data ####</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">A  =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">Y  =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="sc">-</span><span class="dv">10</span>,<span class="dv">47</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">10</span>,<span class="dv">23</span>,<span class="dv">8</span>,<span class="dv">0</span>,<span class="dv">10</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">L  =</span> <span class="fu">c</span>(<span class="dv">36</span>,<span class="dv">42</span>,<span class="dv">42</span>,<span class="dv">47</span>,<span class="dv">47</span>,<span class="dv">47</span>,<span class="dv">48</span>,<span class="dv">48</span>,<span class="dv">51</span>,<span class="dv">56</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> dat0 <span class="ot">&lt;-</span> dat</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>dat1<span class="sc">$</span>A <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>dat0<span class="sc">$</span>A <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardization (分组建模) ####</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>outcome.fit0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> L, <span class="at">data =</span> dat[dat<span class="sc">$</span>A<span class="sc">==</span><span class="dv">0</span>,])</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(outcome.fit0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)           L 
+-24.6426513   0.6527378 </code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Y0 <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> outcome.fit0, <span class="at">newdata =</span> dat0)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>EY0 <span class="ot">&lt;-</span> <span class="fu">mean</span>(Y0) ; EY0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.64438</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(Y3<span class="sc">~</span>A3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>outcome.fit1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> L, <span class="at">data =</span> dat[dat<span class="sc">$</span>A<span class="sc">==</span><span class="dv">1</span>,])</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(outcome.fit1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)           L 
+ 117.447059   -2.117647 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Y1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> outcome.fit1, <span class="at">newdata =</span> dat1)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>EY1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(Y1) ; EY1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.18824</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>EY1<span class="sc">-</span>EY0 <span class="co"># 13.54385</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.54385</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standardization (汇总建模) ####</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>outcome.fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> A <span class="sc">+</span> L, <span class="at">data =</span> dat)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(outcome.fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)           A           L 
+ 27.9302326  12.8664452  -0.5207641 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Y0 <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> outcome.fit, <span class="at">newdata =</span> dat0)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>Y1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> outcome.fit, <span class="at">newdata =</span> dat1)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>EY0 <span class="ot">&lt;-</span> <span class="fu">mean</span>(Y0) ; EY0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.766777</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>EY1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(Y1) ; EY1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16.63322</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>EY1<span class="sc">-</span>EY0 <span class="co"># 12.86645</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12.86645</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inverse Probability Weighting ####</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>exposure.fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(A <span class="sc">~</span> L, <span class="at">family =</span> <span class="fu">binomial</span>(), <span class="at">data =</span> dat)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(exposure.fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)           L 
+ -6.2154811   0.1338375 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(exposure.fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-Call:  glm(formula = Y3 ~ A3)
+Call:
+glm(formula = A ~ L, family = binomial(), data = dat)
 
 Coefficients:
-(Intercept)           A3  
-     24.546        2.137  
+            Estimate Std. Error z value Pr(&gt;|z|)
+(Intercept)  -6.2155     6.7401  -0.922    0.356
+L             0.1338     0.1442   0.928    0.353
 
-Degrees of Freedom: 15 Total (i.e. Null);  14 Residual
-Null Deviance:      82800 
-Residual Deviance: 27220    AIC: 170.4</code></pre>
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 13.863  on 9  degrees of freedom
+Residual deviance: 12.850  on 8  degrees of freedom
+AIC: 16.85
+
+Number of Fisher Scoring iterations: 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(<span class="fu">glm</span>(Y3<span class="sc">~</span>A3), <span class="fu">data.frame</span>(<span class="at">A3=</span><span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>PA1 <span class="ot">&lt;-</span> <span class="fu">predict.glm</span>(<span class="at">object =</span> exposure.fit, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>PA0 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> PA1</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>EY1 <span class="ot">&lt;-</span> <span class="fu">with</span>(dat, <span class="fu">mean</span>(A<span class="sc">*</span>Y<span class="sc">/</span>PA1))</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>EY0 <span class="ot">&lt;-</span> <span class="fu">with</span>(dat, <span class="fu">mean</span>((<span class="dv">1</span><span class="sc">-</span>A)<span class="sc">*</span>Y<span class="sc">/</span>PA0))</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>EY1<span class="sc">-</span>EY0 <span class="co"># 13.23132</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     1 
-216.89 </code></pre>
+<pre><code>[1] 13.23132</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 另一种逆概率加权写法（边际结构模型）</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">fitted</span>(<span class="fu">glm</span>(A <span class="sc">~</span> L, <span class="at">family =</span> <span class="fu">binomial</span>(), <span class="at">data =</span> dat))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>W <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">/</span> e) <span class="sc">*</span> dat<span class="sc">$</span>A <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> e)) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> dat<span class="sc">$</span>A)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">glm</span>(Y <span class="sc">~</span> A, <span class="at">data =</span> dat, <span class="at">weights =</span> W)<span class="sc">$</span>coef</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>EY0 <span class="ot">&lt;-</span> beta[<span class="dv">1</span>] </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>EY1 <span class="ot">&lt;-</span> beta[<span class="dv">1</span>] <span class="sc">+</span> beta[<span class="dv">2</span>]</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>EY1 <span class="sc">-</span> EY0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept) 
+   13.66779 </code></pre>
 </div>
-</section>
-<section id="nonparametric-estimators-of-the-conditional-mean" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="nonparametric-estimators-of-the-conditional-mean"><span class="header-section-number">11.3</span> Nonparametric estimators of the conditional mean</h2>
-<p><img src="images/clipboard-1444979883.png" class="img-fluid"></p>
-<p><img src="images/clipboard-2459163703.png" class="img-fluid"></p>
-<p>估计的条件均值的个数等于参数的个数就是饱和模型，估计的条件均值的个数大于参数的个数就是不饱和和模型</p>
-<p>后面的 估计都是二分类暴露 — 饱和模型 — 条件均值的非参数估计</p>
-</section>
-<section id="smoothing" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="smoothing"><span class="header-section-number">11.4</span> Smoothing</h2>
-<p>加高维项</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Asq<span class="ot">&lt;-</span>A3<span class="sc">*</span>A3</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(Y3<span class="sc">~</span>A3<span class="sc">+</span>Asq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 逆概率加权再来一种写法</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>W <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(dat<span class="sc">$</span>A <span class="sc">==</span> <span class="dv">1</span>,<span class="dv">1</span><span class="sc">/</span>PA1,<span class="dv">1</span><span class="sc">/</span>PA0)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>Model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y<span class="sc">~</span>A ,<span class="at">weights =</span> W,dat)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Model) <span class="co"># 11.1517</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-Call:  glm(formula = Y3 ~ A3 + Asq)
+Call:
+lm(formula = Y ~ A, data = dat, weights = W)
+
+Weighted Residuals:
+    Min      1Q  Median      3Q     Max 
+-20.974 -14.371  -9.730   1.008  46.774 
 
 Coefficients:
-(Intercept)           A3          Asq  
-   -7.40688      4.10723     -0.02038  
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)    5.438      7.326   0.742    0.479
+A             13.668     10.411   1.313    0.226
 
-Degrees of Freedom: 15 Total (i.e. Null);  13 Residual
-Null Deviance:      82800 
-Residual Deviance: 23960    AIC: 170.4</code></pre>
+Residual standard error: 23.11 on 8 degrees of freedom
+Multiple R-squared:  0.1772,    Adjusted R-squared:  0.0744 
+F-statistic: 1.723 on 1 and 8 DF,  p-value: 0.2257</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(<span class="fu">glm</span>(Y3<span class="sc">~</span>A3<span class="sc">+</span>Asq), <span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="at">A3=</span><span class="dv">90</span>, <span class="at">Asq=</span><span class="dv">8100</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Doubly Robust approach ####</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>outcome.fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> A <span class="sc">+</span> L , <span class="at">data =</span> dat)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Y0 <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> outcome.fit, <span class="at">newdata =</span> dat0)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>Y1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(<span class="at">object =</span> outcome.fit, <span class="at">newdata =</span> dat1)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>EY0 <span class="ot">&lt;-</span> <span class="fu">mean</span>(Y0) ; EY0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       1 
-197.1269 </code></pre>
+<pre><code>[1] 3.766777</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>EY1 <span class="ot">&lt;-</span> <span class="fu">mean</span>(Y1) ; EY1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16.63322</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>exposure.fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(A <span class="sc">~</span> L, <span class="at">family =</span> <span class="fu">binomial</span>(), <span class="at">data =</span> dat)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>PA1 <span class="ot">&lt;-</span> <span class="fu">predict.glm</span>(<span class="at">object =</span> exposure.fit, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>PA0 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> PA1</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>DR <span class="ot">&lt;-</span> <span class="cf">function</span>(A, Y, P, EY) {</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(A<span class="sc">*</span>Y<span class="sc">/</span>P <span class="sc">-</span> (A<span class="sc">-</span>P)<span class="sc">*</span>EY<span class="sc">/</span>P)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>EY1.DR <span class="ot">&lt;-</span> <span class="fu">DR</span>(<span class="at">A =</span> dat<span class="sc">$</span>A, <span class="at">Y =</span> dat<span class="sc">$</span>Y, <span class="at">P =</span> PA1, <span class="at">EY =</span> EY1)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>EY0.DR <span class="ot">&lt;-</span> <span class="fu">DR</span>(<span class="at">A =</span> <span class="dv">1</span><span class="sc">-</span>dat<span class="sc">$</span>A, <span class="at">Y =</span> dat<span class="sc">$</span>Y, <span class="at">P =</span> PA0, <span class="at">EY =</span> EY0)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>EY1.DR<span class="sc">-</span>EY0.DR <span class="co"># 13.60072</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.61615</code></pre>
 </div>
 </div>
 </section>
-<section id="the-bias-variance-trade-off" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="the-bias-variance-trade-off"><span class="header-section-number">11.5</span> The bias-variance trade-off</h2>
-<p>不加二次项的模型 bias大但是variance小</p>
-<p>加二次项的模型bias小但是variance大（置信区间大）</p>
-<p>如何抉择根据实际情况判断，高次项的模型相比于一次项的模型，模型错误指定的可能更小</p>
+<section id="what-if-书代码" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="what-if-书代码"><span class="header-section-number">12.8</span> what if 书代码</h2>
+<p><a href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/" class="uri">https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/</a></p>
 
 
 </section>
@@ -810,14 +965,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      <a href="./Why model.html" class="pagination-link" aria-label="Why model">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Why model</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.html" class="pagination-link" aria-label="IP WEIGHTING AND MARGINAL STRUCTURAL MODELS">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">IP WEIGHTING AND MARGINAL STRUCTURAL MODELS</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

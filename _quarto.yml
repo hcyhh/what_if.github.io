@@ -41,7 +41,8 @@ book:
       - references.qmd
     - part: "II Causal inference with models"
       chapters: 
-        - Why model.qmd
+      - Why model.qmd
+      - IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.qmd
     - text: "---"
     - part: "参考文献"
 bibliography: references.bib

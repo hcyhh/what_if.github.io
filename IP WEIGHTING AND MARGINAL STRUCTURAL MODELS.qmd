@@ -1,0 +1,167 @@
+# IP WEIGHTING AND MARGINAL STRUCTURAL MODELS
+
+## The causal question
+
+研究戒烟对体重的影响？
+
+单纯的用$E[Y|A=1]-E[Y|A=0]$并不能代表因果效应，因为可能存在混杂变量（年龄、性别等）
+
+## Estimating IP weights via modeling
+
+the pseudo-population is created by weighting each individual by the inverse (reciprocal) of the conditional probability of receiving the treatment level that she indeed received
+
+$$W^A = 1/f (A|L)$$
+
+在第二章的逆概率加权的简单介绍中，混杂只有一个变量，可以按照分层分别计算逆概率权重， 但是现在数据中有多个变量，多维度数据，还按照以前的方法就会分出2的n次方的层，引起维度灾难， 所以我们需要求助于建模
+
+思路就是对暴露建模$E[A|L]$,从而获得$Pr[A|L]$. 然后建模$E[Y|A]$,并赋予权重，即可估计因果效应
+
+得出点估计后，IP-weighting 的95% CI 的计算有三种方法：
+
+![](images/clipboard-3023317701.png) ![](images/clipboard-2601153603.png)
+
+## Stabilized IP weights
+
+![](images/clipboard-4238995358.png) ![](images/clipboard-470043680.png) ![](images/clipboard-2091016271.png) ![](images/clipboard-3284356021.png)
+
+## Marginal structural models
+
+![](images/clipboard-2409962606.png)
+
+![](images/clipboard-3905519080.png)
+
+![](images/clipboard-438456716.png)
+
+## Effect modification and marginal structural models
+
+![](images/clipboard-3085090657.png)
+
+![](images/clipboard-2135223791.png)
+
+## Censoring and missing data
+
+有删失数据存在的时候，只分析已有数据会引入选择偏倚 解决办法：
+
+![](images/clipboard-703890167.png)
+
+## Code
+
+```{r}
+# 因果推断
+# 基于模型的标准化和IPW方法
+# data ####
+dat <- data.frame(ID = 1:10,
+                  A  = c(0,0,1,0,1,1,0,1,0,1),
+                  Y  = c(3,-10,47,7,4,10,23,8,0,10),
+                  L  = c(36,42,42,47,47,47,48,48,51,56))
+
+dat1 <- dat0 <- dat
+dat1$A <- 1
+dat0$A <- 0
+
+# Standardization (分组建模) ####
+outcome.fit0 <- lm(Y ~ L, data = dat[dat$A==0,])
+coef(outcome.fit0)
+Y0 <- predict(object = outcome.fit0, newdata = dat0)
+EY0 <- mean(Y0) ; EY0
+
+outcome.fit1 <- lm(Y ~ L, data = dat[dat$A==1,])
+coef(outcome.fit1)
+Y1 <- predict(object = outcome.fit1, newdata = dat1)
+EY1 <- mean(Y1) ; EY1
+
+EY1-EY0 # 13.54385
+
+# Standardization (汇总建模) ####
+outcome.fit <- lm(Y ~ A + L, data = dat)
+coef(outcome.fit)
+
+Y0 <- predict(object = outcome.fit, newdata = dat0)
+Y1 <- predict(object = outcome.fit, newdata = dat1)
+
+EY0 <- mean(Y0) ; EY0
+EY1 <- mean(Y1) ; EY1
+
+EY1-EY0 # 12.86645
+
+# Inverse Probability Weighting ####
+exposure.fit <- glm(A ~ L, family = binomial(), data = dat)
+coef(exposure.fit)
+summary(exposure.fit)
+
+PA1 <- predict.glm(object = exposure.fit, type = "response")
+PA0 <- 1 - PA1
+
+
+
+EY1 <- with(dat, mean(A*Y/PA1))
+EY0 <- with(dat, mean((1-A)*Y/PA0))
+
+EY1-EY0 # 13.23132
+
+# 另一种逆概率加权写法（边际结构模型）
+e <- fitted(glm(A ~ L, family = binomial(), data = dat))
+dat$W <- (1 / e) * dat$A + (1 / (1 - e)) * (1 - dat$A)
+beta <- glm(Y ~ A, data = dat, weights = W)$coef
+EY0 <- beta[1] 
+EY1 <- beta[1] + beta[2]
+EY1 - EY0
+
+# 逆概率加权再来一种写法
+W <- ifelse(dat$A == 1,1/PA1,1/PA0)
+Model <- lm(Y~A ,weights = W,dat)
+summary(Model) # 11.1517
+
+
+
+
+# Doubly Robust approach ####
+outcome.fit <- lm(Y ~ A + L , data = dat)
+Y0 <- predict(object = outcome.fit, newdata = dat0)
+Y1 <- predict(object = outcome.fit, newdata = dat1)
+
+EY0 <- mean(Y0) ; EY0
+EY1 <- mean(Y1) ; EY1
+
+exposure.fit <- glm(A ~ L, family = binomial(), data = dat)
+PA1 <- predict.glm(object = exposure.fit, type = "response")
+PA0 <- 1 - PA1
+
+DR <- function(A, Y, P, EY) {
+  mean(A*Y/P - (A-P)*EY/P)
+}
+
+EY1.DR <- DR(A = dat$A, Y = dat$Y, P = PA1, EY = EY1)
+EY0.DR <- DR(A = 1-dat$A, Y = dat$Y, P = PA0, EY = EY0)
+
+EY1.DR-EY0.DR # 13.60072
+
+```
+
+
+
+## what if 书代码
+
+<https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
