@@ -622,5 +622,27 @@
       "II Causal inference with models",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Why model</span>"
     ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "what if",
+    "section": "",
+    "text": "Preface",
+    "crumbs": [
+      "Home",
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#ps大花大花",
+    "href": "index.html#ps大花大花",
+    "title": "what if",
+    "section": "PS：大花大花！",
+    "text": "PS：大花大花！\n这一份读书笔记，想系统性的认真学习因果推断，参考书籍《what if》:\nhttps://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/\n链接中包含可运行代码，便于练习，每周上完课程后将自己所学进行总结，\n进一步复习和完成代码练习，再将学习总结资料搬运到各个平台。",
+    "crumbs": [
+      "Home",
+      "Preface"
+    ]
   }
 ]
