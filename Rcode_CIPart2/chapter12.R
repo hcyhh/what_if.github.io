@@ -6,14 +6,24 @@
 #install.packages("readxl") # install package if required
 library("readxl")
 
-nhefs <- read_excel("F:/Homework/Textbooks/Hernan - Causal Inferences/nhefs.xls")
+nhefs <- read_excel("/Users/hcy/Documents/MyKeyData/300hobby/370professional_class_note/what_if/NHEFS.xls")
+
+# cens 指示出删失观测
 nhefs$cens <- ifelse(is.na(nhefs$wt82), 1, 0)
 
+# 去掉缺失后的数据
 nhefs.nmv <- nhefs[which(!is.na(nhefs$wt82)),] # provisionally ignore subjects with missing values for weight in 1982
 
+
+# 这里没有调整协变量
 lm(wt82_71 ~ qsmk, data=nhefs.nmv)
 predict(lm(wt82_71 ~ qsmk, data=nhefs.nmv), data.frame(qsmk=1)) # Smoking cessation
+# mean(subset(nhefs.nmv,qsmk==1)$wt82_71)
 predict(lm(wt82_71 ~ qsmk, data=nhefs.nmv), data.frame(qsmk=0)) # No smoking cessation
+# mean(subset(nhefs.nmv,qsmk==0)$wt82_71)
+
+
+
 
 # Table
 summary(nhefs.nmv[which(nhefs.nmv$qsmk==0),]$age)
@@ -64,10 +74,16 @@ summary(nhefs.nmv$w)
 sd(nhefs.nmv$w)
 
 #install.packages("geepack") # install package if required
+
+# 注意因为有权重，所以用geeglm 这样可以计算更保守的置信区间
 library("geepack")
 msm.w <- geeglm(wt82_71 ~ qsmk, data=nhefs.nmv, weights=w, id=seqn,
                 corstr="independence")
 summary(msm.w)
+
+
+# msm.w <- glm(wt82_71 ~ qsmk, data=nhefs.nmv, weights=w)
+# summary(msm.w)
 
 beta <- coef(msm.w)
 SE <- coef(summary(msm.w))[,2]
@@ -76,7 +92,13 @@ ucl <- beta+qnorm(0.975)*SE
 cbind(beta, lcl, ucl)
 
 # no association between sex and qsmk in pseudo-population
+# 分类权重求和
 xtabs(nhefs.nmv$w ~ nhefs.nmv$sex + nhefs.nmv$qsmk)
+
+# table(nhefs.nmv$sex,nhefs.nmv$qsmk)
+# sum(subset(nhefs.nmv,sex==0&qsmk==0)$w)
+
+
 
 # "check" for positivity (White women)
 table(nhefs.nmv$age[nhefs.nmv$race == 0 & nhefs.nmv$sex == 1], 
@@ -141,6 +163,8 @@ den.fit.obj <- lm(smkintensity82_71 ~ as.factor(sex) +
   smokeyrs + I(smokeyrs^2) + as.factor(exercise) + as.factor(active) + wt71  + 
   I(wt71^2), data = nhefs.nmv.s)
 p.den <- predict(den.fit.obj, type = "response")
+
+# 这里是算连续型变量的概率密度
 dens.den <- dnorm(nhefs.nmv.s$smkintensity82_71, p.den, summary(den.fit.obj)$sigma)
 
 # estimation of numerator of ip weights
@@ -171,6 +195,36 @@ cbind(beta, lcl, ucl)
 table(nhefs.nmv$qsmk, nhefs.nmv$death)
 
 # First, estimation of stabilized weights sw.a (same as in PROGRAM 12.3)
+
+
+
+
+
+
+# estimation of denominator of ip weights
+den.fit.obj <- lm( qsmk ~ as.factor(sex) + 
+                     as.factor(race) + age + I(age^2) + 
+                     as.factor(education) + smokeintensity + I(smokeintensity^2) +
+                     smokeyrs + I(smokeyrs^2) + as.factor(exercise) + as.factor(active) + wt71  + 
+                     I(wt71^2), data = nhefs.nmv)
+p.den <- predict(den.fit.obj, type = "response")
+
+# 这里是算连续型变量的概率密度
+dens.den <- dnorm(nhefs.nmv$ qsmk, p.den, summary(den.fit.obj)$sigma)
+
+# estimation of numerator of ip weights
+num.fit.obj <- lm( qsmk ~ 1, data = nhefs.nmv)
+p.num <- predict(num.fit.obj, type = "response")
+dens.num <- dnorm(nhefs.nmv$qsmk, p.num, summary(num.fit.obj)$sigma)
+
+nhefs.nmv$sw.a = dens.num/dens.den
+
+
+
+
+
+
+
 # Second, fit logistic model below
 msm.logistic <- geeglm(death ~ qsmk, data=nhefs.nmv, weights=sw.a, 
                       id=seqn, family=binomial(), corstr="independence")
