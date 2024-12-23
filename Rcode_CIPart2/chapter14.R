@@ -6,7 +6,7 @@
 
 #install.packages("readxl") # install package if required
 library("readxl")
-nhefs <- read_excel("F:/Homework/Textbooks/Hernan - Causal Inferences/nhefs.xls")
+nhefs <- read_excel("/Users/hcy/Documents/MyKeyData/300hobby/370professional_class_note/what_if/NHEFS.xls")
 
 # some processing of the data
 nhefs$cens <- ifelse(is.na(nhefs$wt82), 1, 0)

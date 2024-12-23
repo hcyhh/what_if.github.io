@@ -1,3 +1,17 @@
+# STANDARDIZATION AND THE PARAMETRIC G-FORMULA
+
+## Standardization as an alternative to IP weighting
+
+## Estimating the mean outcome via modeling
+
+## Standardizing the mean outcome to the confounder distribution
+
+## IP weighting or standardization?
+
+## How seriously do we take our estimates?
+
+## Code
+```{r}
 ################################################################
 # PROGRAM 13.1
 # Estimating the mean outcome within levels of treatment 
@@ -162,3 +176,6 @@ ul <- mean + qnorm(0.975)*se
 bootstrap <- data.frame(cbind(c("Observed", "No Treatment", "Treatment", 
                                 "Treatment - No Treatment"), mean, se, ll, ul))
 bootstrap
+
+```
+

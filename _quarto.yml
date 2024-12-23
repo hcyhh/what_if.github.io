@@ -43,6 +43,7 @@ book:
       chapters: 
       - Why model.qmd
       - IP WEIGHTING AND MARGINAL STRUCTURAL MODELS.qmd
+      - STANDARDIZATION AND THE PARAMETRIC G-FORMULA.qmd
     - text: "---"
     - part: "参考文献"
 bibliography: references.bib
